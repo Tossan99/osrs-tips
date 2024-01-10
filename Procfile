@@ -1,0 +1,1 @@
+web: gunicorn osrs_tips.wsgi
