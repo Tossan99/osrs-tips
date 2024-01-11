@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<!-- post_detail.html content starts here -->
+
+<h1>This is the post</h1>
+<h2>{{post.title}} | Writen by {{post.author}}</h2>
+<p>{{ post.content | safe }}</p>
+<p>Created on: {{ post.created_on }}</p>
+
+<!-- post_detail.html content ends here -->
+
+{% endblock %}
