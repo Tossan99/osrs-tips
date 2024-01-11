@@ -2,13 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
 STATUS = ((0, "Draft"), (1, "Published"))
 CATEGORY = (
-    (0, "None"), (1, "PvM"), (2, "PvP"), (3, "Skilling"), (4, "Questing"), (5, "Speedrunning"))
+    (0, "None"), (1, "PvM"), (2, "PvP"), (3, "Skilling"), (4, "Questing"))
 
 class Post(models.Model):
-    author_id = models.ForeignKey(
+    author = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="forum_posts")
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -24,4 +23,4 @@ class Post(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return f"{self.title} | written by {self.author_id}"
+        return f"{self.title} | written by {self.author}"
