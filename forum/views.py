@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
+from .forms import PostForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -14,5 +15,20 @@ def post_detail(request, slug):
     return render(
         request,
         "forum/post_detail.html",
-        {"post": post},
+        {
+        "post": post,
+        },
     )
+
+def post_create(request):
+    post_form = PostForm()
+
+    return render(
+        request,
+        "forum/post_create.html",
+        {
+        "post_form": post_form,
+        },
+    )
+
+

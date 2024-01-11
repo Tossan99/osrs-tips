@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+<!-- Post create form -->
+{% block content %}
+
+<!-- index.html content starts here -->
+
+<!-- Creating New Comments -->
+<div class="col-md-4 card mb-4 mt-3">
+    <div class="card-body">
+        <h3>Leave a Post:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <form id="postForm" method="post" style="margin-top: 1.3em;">
+            {{ post_form | crispy }}
+            {% csrf_token %}
+            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- index.html content ends here -->
+
+{% endblock %}
