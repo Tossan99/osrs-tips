@@ -1,0 +1,13 @@
+body {
+    background-image: url('../images/background-osrs.webp');
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.content-background{
+    background-color: #dbcba3;
+}
+
+.panel-background{
+    background-color: #cbba91;
+}

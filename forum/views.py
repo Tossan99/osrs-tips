@@ -11,6 +11,7 @@ class PostList(generic.ListView):
 def post_detail(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
+    paginate_by = 6
 
     return render(
         request,

@@ -2,11 +2,13 @@
 {% load static %}
 
 <!-- post_detail.html content starts here -->
-
-<h1>This is the post</h1>
-<h2>{{post.title}} | Writen by {{post.author}}</h2>
-<p>{{ post.content | safe }}</p>
-<p>Created on: {{ post.created_on }}</p>
+<div class="container-lg card content-background">
+    <div class="row justify-content-md-center">
+        <h2>{{post.title}} | Writen by {{post.author}}</h2>
+        <p>{{ post.content | safe }}</p>
+        <p>Created on: {{ post.created_on }}</p>
+    </div>
+</div>
 
 <!-- post_detail.html content ends here -->
 
