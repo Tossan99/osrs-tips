@@ -1,0 +1,15 @@
+body {
+    background-image: url('../images/background-osrs.webp');
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.content-background{
+    background-color: #dbcba3;
+    /*max-width: 1075px;*/
+}
+
+.nav-background,
+.footer-background{
+    background-color: #c9b27c;
+}
