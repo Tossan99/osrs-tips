@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -14,15 +14,17 @@ def post_detail(request, slug):
     post_comments = post.post_comments.all().order_by("-created_on")
     comment_count = post.post_comments.filter(approved=True).count()
     like_count = post.post_likes.count()
+    comment_form = CommentForm()
 
     return render(
         request,
         "forum/post_detail.html",
         {
-        "post": post,
-        "post_comments": post_comments,
-        "comment_count": comment_count,
-        "like_count": like_count,
+            "post": post,
+            "post_comments": post_comments,
+            "comment_count": comment_count,
+            "like_count": like_count,
+            "comment_form": comment_form,
         },
     )
 
@@ -33,7 +35,7 @@ def post_create(request):
         request,
         "forum/post_create.html",
         {
-        "post_form": post_form,
+            "post_form": post_form,
         },
     )
 
