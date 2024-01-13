@@ -7,12 +7,10 @@
 <div class="container-md card content-background">
     <div class="row justify-content-md-center">
         {% for post in object_list  %}
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-4 ">
+                <div class="card footer-background">
                     <div class="image-container">
-    
                         <img class="card-img-top" src="{% static 'images/zmorak.jpg' %}" alt="placeholder image">
-                        
                         <div class="image-flash">
                             <p class="author">Author: {{ post.author }}</p>
                         </div>
