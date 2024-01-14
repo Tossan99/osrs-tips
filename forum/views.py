@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Post
+from django.contrib import messages
+from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
 # Create your views here.
@@ -14,6 +15,19 @@ def post_detail(request, slug):
     post_comments = post.post_comments.all().order_by("-created_on")
     comment_count = post.post_comments.filter(approved=True).count()
     like_count = post.post_likes.count()
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            messages.add_message(
+            request, messages.SUCCESS,
+            'Comment submitted and awaiting approval!'
+    )
+    
     comment_form = CommentForm()
 
     return render(
@@ -29,8 +43,18 @@ def post_detail(request, slug):
     )
 
 def post_create(request):
+    if request.method == "POST":
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.add_message(
+            request, messages.SUCCESS,
+            'Post submitted and awaiting approval!')
+            
     post_form = PostForm()
-
+            
     return render(
         request,
         "forum/post_create.html",
