@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
+from django.utils.text import slugify
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
@@ -48,6 +49,7 @@ def post_create(request):
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
+            post.slug = slugify(post.title)
             post.save()
             messages.add_message(
             request, messages.SUCCESS,
