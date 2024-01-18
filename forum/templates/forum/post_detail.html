@@ -22,15 +22,15 @@
     <h3>Comments:</h3>
     <hr />
     {% for comment in post_comments %}
-    <div
-      class="mb-1 {% if not comment.approved and comment.author == user %} d-none{% elif not comment.approved %} d-none{% endif %}"
-    >
-      <p>{{ comment.author }} Wrote:</p>
-      <div>
-        {{ comment.content | linebreaks }}
-        <hr />
-        {{ comment.created_on }}
-      </div>
+    <div class="mb-1 {% if not comment.approved and comment.author == user %} p-1 {% elif not comment.approved %} d-none{% endif %}">
+        <p>{{ comment.author }} Wrote:</p>
+        <div id="comment{{ comment.id }}">
+            {{ comment.content | linebreaks }}
+        </div>
+        <p>{{ comment.created_on }}</p>
+        {% if user.is_authenticated and comment.author == user %}
+        <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+        {% endif %}
       {% if not comment.approved and comment.author == user %}
       <p>comment is awaiting approval</p>
       {% endif %}
@@ -41,17 +41,19 @@
 
 <!-- Displaying Add Comment Feature -->
 <div class="container-lg card mt-5 content-background">
-  <div class="row justify-content-md-center">
-    <h3>Leave a comment:</h3>
-    <p>Posting as: {{ user.username }}</p>
-    <form id="commentForm" method="post">
-      {{ comment_form | crispy }} {% csrf_token %}
-      <button id="submitButton" type="submit" class="btn btn-signup btn-lg">
-        Submit
-      </button>
-    </form>
-  </div>
+    <div class="row justify-content-md-center">
+        <h3>Leave a comment:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <form id="commentForm" method="post">
+        {{ comment_form | crispy }} {% csrf_token %}
+        <button id="submitButton" type="submit" class="btn btn-lg">Submit</button>
+        </form>
+    </div>
 </div>
 
 <!-- post_detail.html content ends here -->
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
