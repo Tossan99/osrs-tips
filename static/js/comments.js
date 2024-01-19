@@ -17,6 +17,8 @@ for (let button of editButtons) {
     });
 }
 
+deleteModal.show();
+
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("comment_id");
