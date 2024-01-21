@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 
 <!-- index.html content starts here -->
 
@@ -9,11 +11,7 @@
     <div class="col-md-4 p-4">
       <div class="card footer-background">
         <div class="image-container">
-          <img
-            class="card-img-top"
-            src="{% static 'images/zmorak.jpg' %}"
-            alt="placeholder image"
-          />
+          <img class="card-img-top" src=" {{ post.post_image.url }}" alt="placeholder image"/>
           <div class="image-flash">
             <p class="author">Author: {{ post.author }}</p>
           </div>

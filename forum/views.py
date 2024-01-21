@@ -46,7 +46,7 @@ def post_detail(request, slug):
 
 def post_create(request):
     if request.method == "POST":
-        post_form = PostForm(data=request.POST)
+        post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
@@ -86,6 +86,9 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)

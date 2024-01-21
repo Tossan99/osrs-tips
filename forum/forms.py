@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'category', 'content', 'excerpt', 'status']
+        fields = ['title', 'category', 'content', 'excerpt', 'status', 'post_image']
 
 class CommentForm(forms.ModelForm):
     class Meta:
