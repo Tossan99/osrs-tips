@@ -33,83 +33,59 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light mb-5 nav-background">
-      <div class="container-fluid">
-        <div>
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'images/osrs-logo.JPG' %}" alt="" width="200px" height="90px">
+    <nav class="navbar navbar-expand-md navbar-light mb-4 nav-background">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'images/osrs-logo.JPG' %}" alt="OSRS Tips logo" class="brand-logo">
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 nav-text">
+                    <li class="nav-item ps-3">
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item ps-2">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item ps-2">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item ps-2">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register
+                        </a>
+                    </li>
+                    <li class="nav-item ps-2">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item ps-2">
+                        <a
+                            class="nav-link {% if not user.is_authenticated %}disabled{% endif %}"
+                            href="{% url 'post_create' %}"
+                            >Create Post</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="social-icons" href="{% url 'home' %}">
+                <div class="user-circle">
+                    <i class="fa-solid fa-user center"></i>
+                </div>
             </a>
         </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == home_url %}active{% endif %}"
-                href="{% url 'home' %}"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link btn btn-brown{% if not user.is_authenticated %} disabled {% endif %}"
-                href="{% url 'post_create' %}"
-                >Create Post</a
-              >
-            </li>
-          </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0 p-2">
-            {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == logout_url %}active{% endif %}"
-                aria-current="page"
-                href="{% url 'account_logout' %}"
-                >Logout</a
-              >
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == signup_url %}active{% endif %}"
-                aria-current="page"
-                href="{% url 'account_signup' %}"
-                >Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link {% if request.path == login_url %}active{% endif %}"
-                aria-current="page"
-                href="{% url 'account_login' %}"
-                >Login</a
-              >
-            </li>
-            {% endif %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}"
-                ><i class="fa-solid fa-user social-icons"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </nav>
 
     <!-- Displaying Django Messages -->
