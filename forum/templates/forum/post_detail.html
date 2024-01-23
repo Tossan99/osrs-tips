@@ -13,6 +13,9 @@
     <div class="col-12">
       <p>Comments: {{ comment_count }} Likes: {{ like_count }}</p>
     </div>
+    {% if user.is_authenticated and post.author == request.user%}
+    <a href="{% url 'post_edit' post.pk %}" class="btn btn-sm btn-primary">Edit</a>
+    {% endif %}
   </div>
 </div>
 

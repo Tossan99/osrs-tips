@@ -68,6 +68,42 @@ def post_create(request):
         },
     )
 
+def post_edit(request, post_id):
+    if request.method == "GET":
+        post = Post.objects.get(pk=post_id)
+        return render(
+            request,
+             "forum/post_edit.html",
+            {
+                "post": post
+            },
+        )
+    elif request.method == "POST":
+        post = Post.objects.update_or_create(
+            pk=post_id,
+            defaults={
+                "title": request.POST["title"],
+                "content": request.POST["content"],
+                "excerpt": request.POST["excerpt"],
+                "post_image": request.FILES["post_image"],
+            },
+        )
+        messages.add_message(
+                request, messages.SUCCESS,
+        'Post edited!'
+    )
+        return redirect("home")
+
+def post_delete(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.delete()
+    messages.add_message(
+                request, messages.SUCCESS,
+        'Post deleted!'
+    )
+    return redirect("home")
+
+
 def comment_edit(request, slug, comment_id):
     if request.method == "POST":
 
