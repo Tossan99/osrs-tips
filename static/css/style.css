@@ -21,3 +21,8 @@ body {
 .content-card {
   background-color: #c9b27c;
 }
+
+.social-icons {
+    font-size: 35px;
+    color: #5a4000;
+}

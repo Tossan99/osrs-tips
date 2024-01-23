@@ -21,3 +21,8 @@ body {
 .content-card {
   background-color: #c9b27c;
 }
+
+p {
+    font-size: 100px;
+    color: red;
+}
