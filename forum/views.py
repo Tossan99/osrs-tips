@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.utils.text import slugify
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
+from django.template import loader
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
@@ -45,19 +47,19 @@ def post_detail(request, slug):
     )
 
 def post_create(request):
+    post_form = PostForm()
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
-            post.save()
+            post.save()  
             messages.add_message(
-            request, messages.SUCCESS,
-            'Post submitted and awaiting approval!')
-            
-    post_form = PostForm()
-            
+                request, messages.SUCCESS,
+        'Post submitted and awaiting approval'
+    )      
+      
     return render(
         request,
         "forum/post_create.html",
