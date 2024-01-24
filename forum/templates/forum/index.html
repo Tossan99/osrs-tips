@@ -21,15 +21,14 @@
                     <p class="p-2 mb-1">{{post.excerpt}}</p>
                     <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
                     {% if post.created_on.value == post.updated_on.value %}
-                    <p class="text-muted fst-italic px-2 m-0">No edits have been made</p>
                     {% else %}
-                    <p class="text-muted fst-italic px-2 m-0">Edited on: {{ post.updated_on }}</p>
+                    <p class="text-muted fst-italic px-2 m-0">Last edited: {{ post.updated_on }}</p>
                     {% endif %}
                 </div>
             </a>
         </div>
         {% endfor %}
-  </div>
+    </div>
 </div>
 
 <!-- index.html content ends here -->
