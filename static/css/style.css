@@ -1,12 +1,13 @@
 body {
-  background-image: url("../images/background-osrs.webp");
-  background-attachment: fixed;
-  background-position: center;
+    background-image: url("../images/background-osrs.webp");
+    background-attachment: fixed;
+    background-position: center;
+    font-family: "Roboto", sans-serif;
 }
 
 .profile-icon {
-  color: #533c00;
-  font-size: 45px;
+    color: #533c00;
+    font-size: 45px;
 }
 
 .profile-icon:hover {
@@ -15,13 +16,13 @@ body {
 }
 
 .content-background {
-  background-color: #dbcba3;
+    background-color: #dbcba3;
 }
 
 .nav-background,
 .footer-background,
 .content-card {
-  background-color: #c9b27c;
+    background-color: #c9b27c;
 }
 
 .social-icons {
