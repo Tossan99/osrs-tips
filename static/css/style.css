@@ -21,7 +21,7 @@ body {
 
 .nav-background,
 .footer-background,
-.content-card {
+.card-background {
     background-color: #c9b27c;
 }
 
@@ -47,7 +47,7 @@ body {
 }
 
 .nav-text {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: "Roboto Slab", serif;
     color: #533c00!important;
 }
@@ -63,4 +63,15 @@ li > .active {
 
 h1, h2 ,h3, h4, h5, h6 {
     font-family: "Roboto Slab", serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+a:hover {
+    color: #533c00;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }

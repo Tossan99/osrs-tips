@@ -4,26 +4,31 @@
 
 <!-- index.html content starts here -->
 
-<div class="container-md card content-background">
-  <div class="row justify-content-md-center">
-    {% for post in object_list %}
-
-    <div class="col-md-4 p-4">
-      <div class="card footer-background">
-        <div class="logo">
-          <img class="card-img-top" src=" {{ post.post_image.url }}" alt="placeholder image"/>
-          <div class="image-flash">
-            <p class="author">Author: {{ post.author }}</p>
-          </div>
-          <h2>{{post.title}} | Writen by {{post.author}}</h2>
-          <a href="{% url 'post_detail' post.slug %}" class="post-link">
-            <p>{{post.excerpt}}</p>
-          </a>
-          <p>Created on: {{ post.created_on }}</p>
+<div class="container-sm card content-background">
+    <div class="row justify-content-sm-center p-3">
+        {% for post in object_list %}
+        <div class="col-lg-4 col-md-6 p-3">
+            <a href="{% url 'post_detail' post.slug %}" class="">
+                <div class="card card-background">
+                    {% if "placeholder" in post.post_image.url %}
+                    <img class="" src="{% static 'images/placeholder-image.jpg' %}" alt="Post image">
+                    {% else %}
+                    <img class="" src=" {{ post.post_image.url }}" alt="{{post.title}} image"/>
+                    {% endif %}
+                    <h2 class="px-2 pt-1 m-0">{{post.title}}</h2>
+                    <h5 class="fst-italic px-2 pt-1 m-0">Author: {{ post.author }}</h5>
+                    <hr class="m-1">
+                    <p class="p-2 mb-1">{{post.excerpt}}</p>
+                    <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
+                    {% if post.created_on.value == post.updated_on.value %}
+                    <p class="text-muted fst-italic px-2 m-0">No edits have been made</p>
+                    {% else %}
+                    <p class="text-muted fst-italic px-2 m-0">Edited on: {{ post.updated_on }}</p>
+                    {% endif %}
+                </div>
+            </a>
         </div>
-      </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
   </div>
 </div>
 
