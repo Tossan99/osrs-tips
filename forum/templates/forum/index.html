@@ -11,9 +11,9 @@
             <a href="{% url 'post_detail' post.slug %}" class="">
                 <div class="card card-background">
                     {% if "placeholder" in post.post_image.url %}
-                    <img class="" src="{% static 'images/placeholder-image.jpg' %}" alt="Post image">
+                    <img src="{% static 'images/placeholder-image.jpg' %}" alt="Post image">
                     {% else %}
-                    <img class="" src=" {{ post.post_image.url }}" alt="{{post.title}} image"/>
+                    <img src=" {{ post.post_image.url }}" alt="{{post.title}} +"/>
                     {% endif %}
                     <h2 class="px-2 pt-1 m-0">{{post.title}}</h2>
                     <h5 class="fst-italic px-2 pt-1 m-0">Author: {{ post.author }}</h5>
