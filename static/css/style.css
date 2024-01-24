@@ -4,12 +4,14 @@ body {
   background-position: center;
 }
 
-.icon-brown {
-  color: #5a4000;
+.profile-icon {
+  color: #533c00;
+  font-size: 45px;
 }
 
-.btn-brown {
-  background-color: #5a4000;
+.profile-icon:hover {
+    color: #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .content-background {
@@ -24,24 +26,36 @@ body {
 
 .social-icons {
     font-size: 35px;
-    color: #5a4000;
+    color: #533c00;
+}
+
+.social-icons:hover {
+    color: #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .brand-logo {
-    width: 110px;
+    width: 220px;
     height: 70px;
-    border: 5px solid #5a4000;
-    border-radius: 50%;
+    border: 3px solid #533c00;
+}
+
+.brand-logo:hover {
+    border: 3px solid #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
 .nav-text {
     font-size: 1.4rem;
     font-weight: 500;
+    color: #533c00!important;
 }
 
-.user-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 5px solid #5a4000;
+.nav-text:hover {
+    color: rgb(24, 13, 0) !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+li > .active {
+    color: rgb(24, 13, 0)!important;
 }
