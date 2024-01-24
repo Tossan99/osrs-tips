@@ -11,12 +11,12 @@
         <h5>Written by: {{post.author}}</h5>
         <hr>
         <p>{{ post.content | safe }}</p>
-        <hr>
         <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
         {% if post.created_on.value == post.updated_on.value %}
         {% else %}
         <p class="text-muted fst-italic px-2 m-0">Last edited: {{ post.updated_on }}</p>
         {% endif %}
+        <hr>
         <div class="row">
             <div class="col-2">
                 <h4><i class="fa-regular fa-comments comment-icon"></i> {{ comment_count }}</h4>
@@ -40,28 +40,43 @@
 
 <!-- Displaying Add Comment Feature -->
 <div class="container-sm card mt-5 content-background">
-    <div class="row justify-content-sm-center p-3">
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post">
+    <div class="row justify-content-center p-3">
+        <h3>Leave a comment</h3>
+        <form id="commentForm" method="post" style="margin-top: 1.3em;">
             {{ comment_form | crispy }} {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-lg">Submit</button>
+            <button id="submitButton" type="submit" class="btn btn-lg btn-submit">Submit</button>
         </form>
 
         <!-- Displaying Comments -->
-        <h3>Comments:</h3>
-        <hr />
+        <h3 class="col-11 mt-4 mb-3 p-0">Comments</h3>
         {% for comment in post_comments %}
-        <div class="mb-1 {% if not comment.approved and comment.author == user %} p-1 {% elif not comment.approved %} d-none{% endif %}">
-            <p>{{ comment.author }} Wrote:</p>
-            <div id="comment{{ comment.id }}">{{ comment.content | linebreaks }}</div>
-            <p>{{ comment.created_on }}</p>
-            {% if user.is_authenticated and comment.author == user %}
-            <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-            <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
-            {% endif %} {% if not comment.approved and comment.author == user %}
-            <p>comment is awaiting approval</p>
-            {% endif %}
+        <div class="card card-background col-11 mb-3 p-3 {% if not comment.approved and comment.author == user %}not-approve{% elif not comment.approved %}d-none{% endif %}">
+            <div class="row mt-2">
+                <div class="col-6">
+                    <h5 class="">{{ comment.author }}</h5>
+                </div>
+                <div class="col-6">
+                    <p class="text-muted fst-italic text-italic float-end m-0">Created on: {{ post.created_on }}</p>
+                    {% if comment.created_on.value == comment.updated_on.value %}
+                    {% else %}
+                    <p class="text-muted fst-italic float-end m-0">Last edited: {{ post.updated_on }}</p>
+                    {% endif %}
+                    {% if user.is_authenticated and comment.author == user %}
+                </div>
+            </div>
+            <hr class="m-0">
+            <div class="mt-2" id="comment{{ comment.id }}">{{ comment.content | linebreaks }}</div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <button class="btn btn-edit me-2" comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                </div>
+                <div class="col-6">
+                    {% endif %} {% if not comment.approved and comment.author == user %}
+                    <p class="float-end">- comment is awaiting approval</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
