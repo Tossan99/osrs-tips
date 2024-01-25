@@ -114,7 +114,9 @@ a:hover {
 }
 
 /* Buttons ---------------------*/
-.btn-submit {
+.btn-submit, 
+.btn-normal, 
+.btn-edit {
     background-color: #533c00;
     color: #fff;
     border-color: #533c00;      
@@ -122,22 +124,8 @@ a:hover {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
 
-.btn-submit:hover {
-    background-color: #886201;
-    color: #fff;
-    border-color: #886201;
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.btn-edit {
-    background-color: #533c00;
-    color: #fff;
-    border-color: #533c00;
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
+.btn-submit:hover, 
+.btn-normal:hover, 
 .btn-edit:hover {
     background-color: #886201;
     color: #fff;
