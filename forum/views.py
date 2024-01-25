@@ -8,6 +8,12 @@ from django.template import loader
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
+def redirect_view(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    elif not request.user.is_authenticated:
+        return redirect('about')
+    
 
 # Home page
 #--------------------------------------------------
