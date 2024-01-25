@@ -27,10 +27,7 @@ def post_detail(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
-            messages.add_message(
-            request, messages.SUCCESS,
-            'Comment submitted and awaiting approval!'
-    )
+            messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval!')
     
     comment_form = CommentForm()
 
@@ -55,10 +52,7 @@ def post_create(request):
             post.author = request.user
             post.slug = slugify(post.title)
             post.save()  
-            messages.add_message(
-                request, messages.SUCCESS,
-        'Post submitted and awaiting approval'
-    )      
+            messages.add_message(request, messages.SUCCESS, 'Post submitted and awaiting approval')      
       
     return render(
         request,
@@ -88,10 +82,7 @@ def post_edit(request, post_id):
                 "post_image": request.FILES["post_image"],
             },
         )
-        messages.add_message(
-                request, messages.SUCCESS,
-        'Post edited!'
-    )
+        messages.add_message(request, messages.SUCCESS, 'Post updated successfully')
         return redirect("home")
 
 def post_delete(request, post_id):
@@ -117,9 +108,9 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, 'Comment updated successfully')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error updating comment')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -133,9 +124,9 @@ def comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted successfully')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR, 'Error deleting comment')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 

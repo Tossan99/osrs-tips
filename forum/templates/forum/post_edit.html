@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-md card content-background">
-    <div class="row justify-content-md-center">
+<div class="container-sm card mt-5 content-background">
+    <div class="row justify-content-sm-center">
         <h2 class="m-4 text-center">Edit post</h2>
         <form action="{% url 'post_edit' post.pk %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
