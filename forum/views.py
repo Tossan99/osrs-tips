@@ -8,11 +8,20 @@ from django.template import loader
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
-# Create your views here.
+# Home page
+#--------------------------------------------------
 class PostList(generic.ListView):
     queryset = Post.objects.all()
     template_name = "forum/index.html"
 
+
+# About page
+#--------------------------------------------------
+def about_page(request):
+    return render(request, "forum/about.html")
+
+# Posts
+#--------------------------------------------------
 def post_detail(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
@@ -95,7 +104,8 @@ def post_delete(request, post_id):
     )
     return redirect("home")
 
-
+# Comments
+#--------------------------------------------------
 def comment_edit(request, slug, comment_id):
     if request.method == "POST":
 

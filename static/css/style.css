@@ -27,7 +27,7 @@ h6 {
 }
 
 /* Nav Bar ---------------------*/
-.brand-logo {
+.nav-logo {
     width: 240px;
     height: 70px;
     border: 3px solid #533c00;
@@ -64,6 +64,12 @@ a {
 a:hover {
     color: #533c00;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+/* About page ---------------------*/
+.about-logo {
+    border: 7px solid #533c00;
+    border-radius: 49%;
 }
 
 /* Icons ---------------------*/

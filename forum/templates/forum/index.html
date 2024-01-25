@@ -3,7 +3,6 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-
 <div class="container-sm card mt-5 content-background">
     <div class="row justify-content-sm-center p-3">
         {% for post in object_list %}
@@ -20,7 +19,7 @@
                     <hr class="m-1">
                     <p class="p-2 mb-1">{{post.excerpt}}</p>
                     {% if not post.approved %}
-                    <h4><bold>Post is awaiting approval</bold></h4>
+                    <h4 class="ps-2"><bold>Post is awaiting approval</bold></h4>
                     {% endif %}
                     <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
                     {% if post.created_on.value == post.updated_on.value %}
@@ -33,7 +32,6 @@
         {% endfor %}
     </div>
 </div>
-
 <!-- index.html content ends here -->
 
 {% endblock %}

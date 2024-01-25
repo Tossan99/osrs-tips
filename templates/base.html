@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
+{% url 'about' as about_url %}
 {% url 'post_create' as post_create_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -38,7 +39,7 @@
         <div class="container-fluid">
             <div>
                 <a class="navbar-brand ps-2" href="{% url 'home' %}">
-                    <img src="{% static 'images/osrs-logo.JPG' %}" alt="OSRS Tips logo" class="brand-logo">
+                    <img src="{% static 'images/osrs-logo.JPG' %}" alt="OSRS Tips logo" class="nav-logo">
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -54,7 +55,7 @@
                         href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text" href="#">About</a>
+                        <a class="nav-link nav-text" href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item ps-2">

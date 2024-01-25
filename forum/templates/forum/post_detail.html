@@ -4,7 +4,7 @@
 {% block content %}
 
 <!-- post_detail.html content starts here -->
-<!-- Displaying Post -->
+<!-- Post -->
 <div class="container-sm card mt-5 content-background">
     <div class="row justify-content-sm-center p-3">
         <h2>{{post.title}}</h2>
@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<!-- Displaying Add Comment Feature -->
+<!-- Add comment feature -->
 <div class="container-sm card mt-5 content-background">
     <div class="row justify-content-center p-3">
         <h3>Leave a comment</h3>
@@ -47,7 +47,7 @@
             <button id="submitButton" type="submit" class="btn btn-lg btn-submit">Submit</button>
         </form>
 
-        <!-- Displaying Comments -->
+        <!-- Comments -->
         <h3 class="col-11 mt-4 mb-3 p-0">Comments</h3>
         {% for comment in post_comments %}
         <div class="card card-background col-11 mb-3 p-3 {% if not comment.approved and comment.author == user %}not-approved{% elif not comment.approved %}d-none{% endif %}">
@@ -100,8 +100,8 @@
         </div>
     </div>
 </div>
-
 <!-- post_detail.html content ends here -->
+
 {% endblock %} {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
