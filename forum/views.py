@@ -8,6 +8,7 @@ from django.template import loader
 from .models import Post, Comment, Like
 from .forms import PostForm, CommentForm
 
+
 # Home page
 #--------------------------------------------------
 class PostList(generic.ListView):
@@ -15,10 +16,32 @@ class PostList(generic.ListView):
     template_name = "forum/index.html"
 
 
+# Category pages
+#--------------------------------------------------
+class PvmList(generic.ListView):
+    queryset = Post.objects.filter(category=1)
+    template_name = "forum/category_pvm.html"
+
+
+class PvpList(generic.ListView):
+    queryset = Post.objects.filter(category=2)
+    template_name = "forum/category_pvp.html"
+
+
+class SkillingList(generic.ListView):
+    queryset = Post.objects.filter(category=3)
+    template_name = "forum/category_skilling.html"
+
+class QuestingList(generic.ListView):
+    queryset = Post.objects.filter(category=4)
+    template_name = "forum/category_questing.html"
+
+
 # About page
 #--------------------------------------------------
 def about_page(request):
     return render(request, "forum/about.html")
+
 
 # Posts
 #--------------------------------------------------
@@ -103,6 +126,7 @@ def post_delete(request, post_id):
         'Post deleted!'
     )
     return redirect("home")
+
 
 # Comments
 #--------------------------------------------------

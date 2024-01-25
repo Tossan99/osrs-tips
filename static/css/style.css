@@ -93,6 +93,10 @@ a:hover {
     color: #818589;
 }
 
+.category-icons {
+    font-size: 30px;
+}
+
 .profile-icon {
     color: #533c00;
     font-size: 45px;
