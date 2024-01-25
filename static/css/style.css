@@ -53,7 +53,6 @@ h6 {
 
 .nav-active {
     color: black !important;
-    padding-bottom: 0;
 }
 
 a {
@@ -120,8 +119,6 @@ a:hover {
     background-color: #533c00;
     color: #fff;
     border-color: #533c00;      
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
 
 .btn-submit:hover, 
@@ -130,24 +127,28 @@ a:hover {
     background-color: #886201;
     color: #fff;
     border-color: #886201;
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-submit:focus,
+.btn-normal:focus,
+.btn-edit:focus {
+    box-shadow: 0 0 0 0.2rem rgb(136, 98, 1, .5);
 }
 
 .btn-delete {
     background-color: #EC7063;
     color: #fff;
     border-color: #EC7063;
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .btn-delete:hover {
     background-color: #E74C3C;
     color: #fff;
     border-color: #E74C3C;
-    border: 1px solid transparent;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-delete:focus {
+    box-shadow: 0 0 0 0.2rem rgb(236, 112, 99, .5);
 }
 
 /* Misc ---------------------*/
