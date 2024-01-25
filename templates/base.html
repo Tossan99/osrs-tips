@@ -58,21 +58,21 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text{% if request.path == logout_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link nav-text {% if request.path == logout_url %}nav-active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Log Out</a>
                     </li>
                     {% else %}
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text{% if request.path == signup_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link nav-text {% if request.path == signup_url %}nav-active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text{% if request.path == login_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link nav-text {% if request.path == login_url %}nav-active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Log In</a>
                     </li>
                     {% endif %}
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text{% if not user.is_authenticated %}disabled{% endif %} {% if request.path == post_create_url %}nav-active{% endif %}" 
+                        <a class="nav-link nav-text {% if not user.is_authenticated %}disabled not-approved{% endif %} {% if request.path == post_create_url %}nav-active{% endif %}" 
                         href="{% url 'post_create' %}">Create Post</a>
                     </li>
                 </ul>
