@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+
+{% block content %}
 
 <!-- post_create.html content starts here -->
 <!-- Create post form -->
@@ -6,18 +9,9 @@
     <div class="row justify-content-sm-center p-3">
         <h2>Leave a Post:</h2>
         <h5>Posting as: {{ user.username }}</h5>
-        <form
-            id="postForm"
-            method="post"
-            enctype="multipart/form-data"
-            style="margin-top: 1.3em">
+        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em">
             {{ post_form | crispy }} {% csrf_token %}
-            <button
-                id="submitButton"
-                type="submit"
-                class="btn btn-lg btn-normal">
-                Submit
-            </button>
+            <button id="submitButton" type="submit" class="btn btn-lg btn-normal">Submit</button>
         </form>
     </div>
 </div>

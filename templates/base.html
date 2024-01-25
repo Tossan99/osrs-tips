@@ -55,7 +55,8 @@
                         href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item ps-2">
-                        <a class="nav-link nav-text" href="{% url 'about' %}">About</a>
+                        <a class="nav-link nav-text {% if request.path == about_url %}nav-active{% endif %}" aria-current="page" 
+                        href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item ps-2">
@@ -107,7 +108,7 @@
     <!-- Footer -->
     <div class="container-fluid mt-5 footer-background">
       <footer class="pt-3 pb-1">
-        <h5 class="text-center">Vissit us on social media</h5>
+        <h5 class="text-center">Visit us on social media</h5>
         <ul class="nav justify-content-center">
           <li class="nav-item">
             <a href="https://www.discord.com/" class="nav-link social-icons">

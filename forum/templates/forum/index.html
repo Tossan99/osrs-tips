@@ -6,7 +6,7 @@
 <div class="container-sm card mt-5 content-background">
     <div class="row justify-content-sm-center p-3">
         {% for post in object_list %}
-        <div class="col-lg-4 col-md-6 p-3 {% if not post.approved and post.author == user %}not-approved{% elif not post.approved %}d-none{% endif %}">
+        <div class="col-lg-4 col-md-6 p-3 {% if not post.approved and post.author == request.user %}not-approved{% elif not post.approved %}d-none{% endif %}">
             <a href="{% url 'post_detail' post.slug %}" class="">
                 <div class="card card-background">
                     {% if "placeholder" in post.post_image.url %}
