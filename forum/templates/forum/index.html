@@ -7,18 +7,21 @@
 <div class="container-sm card mt-5 content-background">
     <div class="row justify-content-sm-center p-3">
         {% for post in object_list %}
-        <div class="col-lg-4 col-md-6 p-3">
+        <div class="col-lg-4 col-md-6 p-3 {% if not post.approved and post.author == user %}not-approved{% elif not post.approved %}d-none{% endif %}">
             <a href="{% url 'post_detail' post.slug %}" class="">
                 <div class="card card-background">
                     {% if "placeholder" in post.post_image.url %}
-                    <img src="{% static 'images/placeholder-image.jpg' %}" alt="Post image">
+                    <img src="{% static 'images/placeholder-image.jpg' %}" alt="{{post.title}} image">
                     {% else %}
-                    <img src=" {{ post.post_image.url }}" alt="{{post.title}} +"/>
+                    <img src=" {{ post.post_image.url }}" alt="{{post.title}} image">
                     {% endif %}
                     <h2 class="px-2 pt-1 m-0">{{post.title}}</h2>
                     <h5 class="fst-italic px-2 pt-1 m-0">Author: {{ post.author }}</h5>
                     <hr class="m-1">
                     <p class="p-2 mb-1">{{post.excerpt}}</p>
+                    {% if not post.approved %}
+                    <h4><bold>Post is awaiting approval</bold></h4>
+                    {% endif %}
                     <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
                     {% if post.created_on.value == post.updated_on.value %}
                     {% else %}

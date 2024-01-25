@@ -10,9 +10,7 @@
         <h5>Posting as: {{ user.username }}</h5>
         <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em">
             {{ post_form | crispy }} {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-post">
-                Submit
-            </button>
+            <button id="submitButton" type="submit" class="btn btn-lg btn-normal">Submit</button>
         </form>
     </div>
 </div>
