@@ -1,66 +1,9 @@
+/* General ---------------------*/
 body {
     background-image: url("../images/background-osrs.webp");
     background-attachment: fixed;
     background-position: center;
     font-family: "Roboto", sans-serif;
-}
-
-.profile-icon {
-    color: #533c00;
-    font-size: 45px;
-    border: 3px solid brown;
-}
-
-.profile-icon:hover {
-    color: #886201;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-.content-background {
-    background-color: #dbcba3;
-}
-
-.nav-background,
-.footer-background,
-.card-background {
-    background-color: #c9b27c;
-}
-
-.social-icons {
-    font-size: 35px;
-    color: #533c00;
-}
-
-.social-icons:hover {
-    color: #886201;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-.brand-logo {
-    width: 240px;
-    height: 70px;
-    border: 3px solid #533c00;
-}
-
-.brand-logo:hover {
-    border: 3px solid #886201;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-.nav-text {
-    font-size: 1.5rem;
-    font-family: "Roboto Slab", serif;
-    color: #533c00 !important;
-}
-
-.nav-text:hover {
-    color: rgb(24, 13, 0) !important;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-li>.active {
-    color: blue !important;
-    border-bottom: 3px solid #533c00 !important;
 }
 
 h1,
@@ -72,7 +15,153 @@ h6 {
     font-family: "Roboto Slab", serif;
 }
 
+/* Backgrounds ---------------------*/
+.content-background {
+    background-color: #dbcba3;
+}
+
+.nav-background,
+.footer-background,
+.card-background {
+    background-color: #c9b27c;
+}
+
+/* Nav Bar ---------------------*/
+.nav-logo {
+    width: 240px;
+    height: 70px;
+    border: 3px solid #533c00;
+    border-radius: 47%;
+    padding: 5px;
+}
+
+.brand-logo:hover {
+    border: 3px solid #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-text {
+    font-size: 1.4rem;
+    font-family: "Roboto Slab", serif;
+    color: #533c00 !important;
+}
+
+.nav-text:hover {
+    color: #886201 !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-active {
+    color: black !important;
+}
+
+a {
+    color: black;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    text-decoration: none;
+}
+
 a:hover {
     color: #533c00;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+/* About page ---------------------*/
+.about-logo {
+    border: 7px solid #533c00;
+    border-radius: 49%;
+}
+
+/* Icons ---------------------*/
+.like-icon {
+    font-size: 30px;
+    color: #EC7063;
+}
+
+.comment-icon {
+    font-size: 30px;
+    color: #533c00;
+}
+
+.edit-icon {
+    font-size: 30px;
+    color: #3498DB;
+}
+
+.delete-icon {
+    font-size: 35px;
+    color: #818589;
+}
+
+.category-icons {
+    font-size: 30px;
+}
+
+.profile-icon {
+    color: #533c00;
+    font-size: 45px;
+    border: 4px solid #533c00;
+    padding: 4px 8.5px;
+    border-radius: 50%;
+}
+
+.profile-icon:hover {
+    color: #886201;
+    border: 4px solid #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.social-icons {
+    font-size: 35px;
+    color: #533c00;
+}
+
+.social-icons:hover {
+    color: #886201;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    cursor: pointer;
+}
+
+/* Buttons ---------------------*/
+.btn-submit, 
+.btn-normal, 
+.btn-edit {
+    background-color: #533c00;
+    color: #fff;
+    border-color: #533c00;      
+    }
+
+.btn-submit:hover, 
+.btn-normal:hover, 
+.btn-edit:hover {
+    background-color: #886201;
+    color: #fff;
+    border-color: #886201;
+}
+
+.btn-submit:focus,
+.btn-normal:focus,
+.btn-edit:focus {
+    box-shadow: 0 0 0 0.2rem rgb(136, 98, 1, .5);
+}
+
+.btn-delete {
+    background-color: #EC7063;
+    color: #fff;
+    border-color: #EC7063;
+}
+
+.btn-delete:hover {
+    background-color: #E74C3C;
+    color: #fff;
+    border-color: #E74C3C;
+}
+
+.btn-delete:focus {
+    box-shadow: 0 0 0 0.2rem rgb(236, 112, 99, .5);
+}
+
+/* Misc ---------------------*/
+.not-approved {
+    opacity: 0.5;
 }
