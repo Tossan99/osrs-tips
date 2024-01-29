@@ -4,6 +4,9 @@ body {
     background-attachment: fixed;
     background-position: center;
     font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1,

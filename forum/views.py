@@ -120,6 +120,7 @@ def post_edit(request, post_id):
             pk=post_id,
             defaults={
                 "title": request.POST["title"],
+                "category": request.POST["category"],
                 "content": request.POST["content"],
                 "excerpt": request.POST["excerpt"],
                 "post_image": request.FILES["post_image"],

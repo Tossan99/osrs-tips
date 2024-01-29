@@ -5,7 +5,7 @@
 
 <!-- post_detail.html content starts here -->
 <!-- Post -->
-<div class="container-sm card mt-5 content-background">
+<div class="container-sm card my-5 content-background">
     <div class="row justify-content-sm-center p-3">
         <h2>{{post.title}}</h2>
         <h5>Written by: {{post.author}}</h5>
@@ -55,9 +55,9 @@
 </div>
 
 <!-- Add comment feature -->
-<div class="container-sm card mt-5 content-background">
+<div class="container-sm card my-5 content-background">
     <div class="row justify-content-center p-3">
-        <h3>Leave a comment</h3>
+        <h3 id="commentHeading">Leave a comment</h3>
         <form id="commentForm" method="post" style="margin-top: 1.3em;">
             {{ comment_form | crispy }} {% csrf_token %}
             <button id="submitButton" type="submit" class="btn btn-lg btn-submit">Submit</button>

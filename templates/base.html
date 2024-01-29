@@ -33,120 +33,118 @@
         <title>OSRS Tips Forum</title>
   </head>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light nav-background">
-        <div class="container-fluid">
-            <div>
-                <a class="navbar-brand ps-2" href="{% url 'home' %}">
-                    <img src="{% static 'images/osrs-logo.JPG' %}" alt="OSRS Tips logo" class="nav-logo">
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light nav-background">
+            <div class="container-fluid">
+                <div>
+                    <a class="navbar-brand ps-2" href="{% url 'home' %}">
+                        <img src="{% static 'images/osrs-logo.JPG' %}" alt="OSRS Tips logo" class="nav-logo">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if request.path == home_url %}nav-active{% endif %}" 
+                            href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if request.path == about_url %}nav-active{% endif %}" aria-current="page" 
+                            href="{% url 'about' %}">About</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if request.path == logout_url %}nav-active{% endif %}" aria-current="page"
+                                href="{% url 'account_logout' %}">Log Out</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if request.path == signup_url %}nav-active{% endif %}" aria-current="page"
+                                href="{% url 'account_signup' %}">Sign Up</a>
+                        </li>
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if request.path == login_url %}nav-active{% endif %}" aria-current="page"
+                                href="{% url 'account_login' %}">Log In</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item ps-2">
+                            <a class="nav-link nav-text {% if not user.is_authenticated %}disabled not-approved{% endif %} {% if request.path == post_create_url %}nav-active{% endif %}" 
+                            href="{% url 'post_create' %}">Create Post</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="me-lg-5 me-2" href="{% url 'home' %}">
+                    <i class="fa-solid fa-user profile-icon"></i>
                 </a>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if request.path == home_url %}nav-active{% endif %}" 
-                        href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if request.path == about_url %}nav-active{% endif %}" aria-current="page" 
-                        href="{% url 'about' %}">About</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if request.path == logout_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_logout' %}">Log Out</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if request.path == signup_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Sign Up</a>
-                    </li>
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if request.path == login_url %}nav-active{% endif %}" aria-current="page"
-                            href="{% url 'account_login' %}">Log In</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item ps-2">
-                        <a class="nav-link nav-text {% if not user.is_authenticated %}disabled not-approved{% endif %} {% if request.path == post_create_url %}nav-active{% endif %}" 
-                        href="{% url 'post_create' %}">Create Post</a>
-                    </li>
-                </ul>
-            </div>
-            <a class="me-lg-5 me-2" href="{% url 'home' %}">
-                <i class="fa-solid fa-user profile-icon"></i>
-            </a>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Displaying Django Messages -->
-    <div class="container-fluid mt-3">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-10">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show m-0" id="msg" role="alert">
-                    <h5 class="m-0">{{ message | safe }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <!-- Displaying Django Messages -->
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show m-0" id="msg" role="alert">
+                        <h5 class="m-0">{{ message | safe }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    </div>
 
-    <main class="flex-shrink-0">
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
-    </main>
+        <main class="flex-shrink-0">
+            {% block content %}
+            <!-- Content Goes here -->
+            {% endblock content %}
+        </main>
 
-    <!-- Footer -->
-    <div class="container-fluid mt-5 footer-background">
-      <footer class="pt-3 pb-1">
-        <h5 class="text-center">Visit us on social media</h5>
-        <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a href="https://www.discord.com/" class="nav-link social-icons">
-                <i class="fa-brands fa-discord"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.twitter.com/" class="nav-link social-icons"
-              ><i class="fa-brands fa-x-twitter"></i
-            ></a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.youtube.com/" class="nav-link social-icons"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.instagram.com/" class="nav-link social-icons"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-          </li>
-        </ul>
-        <p class="text-center text-muted">
-          © 2024 OSRS Tips, All Rights Reserved
-        </p>
-      </footer>
-    </div>
+        <!-- Footer -->
+            <footer class="container-fluid pt-3 pb-1 mt-auto footer-background">
+                <h5 class="text-center">Visit us on social media</h5>
+                <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a href="https://www.discord.com/" class="nav-link social-icons">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.twitter.com/" class="nav-link social-icons">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.youtube.com/" class="nav-link social-icons">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.instagram.com/" class="nav-link social-icons">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
+                </ul>
+                <p class="text-center text-muted">© 2024 OSRS Tips, All Rights Reserved</p>
+            </footer>
 
-    <!-- Bootstrap JavaScript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+        <!-- Bootstrap JavaScript -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous">
+        </script>
 
-    <!-- Font Awesome JavaScript -->
-    <script src="https://kit.fontawesome.com/6b05e2d640.js" crossorigin="anonymous"></script>
+        <!-- Font Awesome JavaScript -->
+        <script 
+            src="https://kit.fontawesome.com/6b05e2d640.js" crossorigin="anonymous">
+        </script>
 
-    {% block extras %} {% endblock %}
-  </body>
+        {% block extras %} {% endblock %}
+    </body>
 </html>

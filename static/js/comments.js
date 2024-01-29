@@ -2,6 +2,7 @@ const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_content");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
+const commentHeading = document.getElementById("commentHeading");
 
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const commentDeleteButtons = document.getElementsByClassName("btn-delete-comment");
@@ -17,6 +18,7 @@ for (let button of editButtons) {
         ).innerText;
         commentText.value = commentContent;
         submitButton.innerText = "Update";
+        commentHeading.innerText = "Edit your comment";
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
     });
 }
