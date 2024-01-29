@@ -1,5 +1,5 @@
 const editButtons = document.getElementsByClassName("btn-edit");
-const commentText = document.getElementById("id_content");
+const commentText = document.getElementById("content");
 const commentForm = document.getElementById("commentForm");
 const submitButton = document.getElementById("submitButton");
 const commentHeading = document.getElementById("commentHeading");

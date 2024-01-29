@@ -58,8 +58,9 @@
 <div class="container-sm card my-5 content-background">
     <div class="row justify-content-center p-3">
         <h3 id="commentHeading">Leave a comment</h3>
-        <form id="commentForm" method="post" style="margin-top: 1.3em;">
-            {{ comment_form | crispy }} {% csrf_token %}
+        <form id="commentForm" method="post">
+            {% csrf_token %}
+            <textarea type="text" id="content" name="content" rows="5" cols="200" class="form-control mb-3">{{ comment.content | safe }}</textarea>
             <button id="submitButton" type="submit" class="btn btn-lg btn-submit">Submit</button>
         </form>
 
