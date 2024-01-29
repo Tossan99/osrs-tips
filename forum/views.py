@@ -5,7 +5,7 @@ from django.utils.text import slugify
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Post, Comment, Like
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
 def redirect_view(request):
@@ -56,7 +56,6 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     post_comments = post.post_comments.all().order_by("-created_on")
     comment_count = post.post_comments.filter(approved=True).count()
-    like_count = post.post_likes.count()
     post_liked = False
     if post.likes.filter(id=request.user.id).exists():
         post_liked = True
@@ -80,7 +79,6 @@ def post_detail(request, slug):
             "post_comments": post_comments,
             "comment_count": comment_count,
             "post_liked": post_liked,
-            "like_count": like_count,
             "comment_form": comment_form,
         },
     )
@@ -131,18 +129,19 @@ def post_edit(request, post_id):
 
 def post_delete(request, post_id):
     post = Post.objects.get(pk=post_id)
-    post.delete()
-    messages.add_message(
-                request, messages.SUCCESS,
-        'Post deleted!'
-    )
+    if post.author == request.user:
+        post.delete()
+        messages.add_message(request, messages.SUCCESS,'Post deleted successfully!')
+    else:
+        messages.add_message(request, messages.ERROR, 'Error deleting post')
+    
     return redirect("home")
 
 # Comments
 #--------------------------------------------------
 def comment_edit(request, slug, comment_id):
     if request.method == "POST":
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
@@ -162,7 +161,7 @@ def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 

@@ -6,12 +6,38 @@
 <!-- post_create.html content starts here -->
 <!-- Create post form -->
 <div class="container-sm card my-5 content-background">
-    <div class="row justify-content-sm-center p-3">
-        <h2>Leave a Post:</h2>
-        <h5>Posting as: {{ user.username }}</h5>
-        <form id="postForm" method="post" enctype="multipart/form-data" style="margin-top: 1.3em">
-            {{ post_form | crispy }} {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-lg btn-normal">Submit</button>
+    <div class="row justify-content-sm-center">
+        <h1 class="m-4 text-center">Create a post</h1>
+        <form id="postForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="image">Image</label>
+            <br>
+            <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}">
+            <br>
+            <label for="category">Category*</label>
+            <br>
+            <select name="category" id="category" class="form-select">
+                <option value="0">None</option>
+                <option value="1">PvM</option>
+                <option value="2">PvP</option>
+                <option value="3">Skilling</option>
+                <option value="4">Questing</option>
+            </select>
+            <br>
+            <label for="title">Title*</label>
+            <br>
+            <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
+            <br>
+            <label for="content">Content*</label>
+            <br>
+            <textarea type="text" id="content" name="content" rows="10" cols="50" class="form-control"
+                required>{{ post.content | safe }}</textarea>
+            <br>
+            <label for="excerpt">Excerpt*</label><br>
+            <textarea type="text" id="excerpt" name="excerpt" rows="5" cols="50" class="form-control"
+                required>{{ post.excerpt }}</textarea>
+            <br>
+            <button id="submitButton" type="submit" class="btn btn-lg btn-normal mb-4">Submit</button>
         </form>
     </div>
 </div>

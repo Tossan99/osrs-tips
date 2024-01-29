@@ -15,7 +15,6 @@ class Post(models.Model):
     category = models.IntegerField(choices=CATEGORY, default=0)
     content = models.TextField(max_length=2000, blank=True)
     excerpt = models.TextField(max_length=200, blank=True)
-    status = models.IntegerField(choices=STATUS, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
@@ -47,13 +46,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author}'s comment on {self.post}"
-
-class Like(models.Model):
-    liker = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="post_liker")
-    post = models.ForeignKey(
-    Post, on_delete=models.CASCADE, related_name="post_likes")
-    like = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"{self.liker} liked {self.post}"

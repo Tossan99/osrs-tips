@@ -47,7 +47,7 @@
                 <a href="{% url 'post_edit' post.pk %}"><i class="fa-regular fa-pen-to-square edit-icon float-end"></i></a>
             </div>
             <div class="col-2">
-                <a class="btn-delete-post" post_id="{{ post.id }}"><i class="fa-regular fa-trash-can delete-icon float-end"></i></a>
+                <a><i post_id="{{ post.id }}" class="fa-regular fa-trash-can delete-icon float-end btn-delete-post"></i></a>
             </div>
             {% endif %}
         </div>
