@@ -9,7 +9,7 @@ CATEGORY = (
 # Create your models here.
 class Post(models.Model):
     author = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="forum_posts")
+        User, on_delete=models.CASCADE, related_name="forum_posts")
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
@@ -20,7 +20,11 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
     post_image = CloudinaryField('image', default='placeholder')
-    
+    likes = models.ManyToManyField(
+        User, related_name='forum_post_likes', blank=True)
+
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ["-created_on"]
@@ -30,9 +34,9 @@ class Post(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="post_commenter")
+        User, on_delete=models.CASCADE, related_name="post_commenter")
     post = models.ForeignKey(
-    Post, on_delete=models.CASCADE, related_name="post_comments")
+        Post, on_delete=models.CASCADE, related_name="post_comments")
     content = models.TextField(max_length=500, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

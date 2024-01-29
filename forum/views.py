@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic
+from django.views import generic, View
 from django.contrib import messages
 from django.utils.text import slugify
 from django.http import HttpResponseRedirect
@@ -57,6 +57,9 @@ def post_detail(request, slug):
     post_comments = post.post_comments.all().order_by("-created_on")
     comment_count = post.post_comments.filter(approved=True).count()
     like_count = post.post_likes.count()
+    post_liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post_liked = True
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -76,6 +79,7 @@ def post_detail(request, slug):
             "post": post,
             "post_comments": post_comments,
             "comment_count": comment_count,
+            "post_liked": post_liked,
             "like_count": like_count,
             "comment_form": comment_form,
         },
@@ -133,7 +137,6 @@ def post_delete(request, post_id):
     )
     return redirect("home")
 
-
 # Comments
 #--------------------------------------------------
 def comment_edit(request, slug, comment_id):
@@ -170,4 +173,16 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'Error deleting comment')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+# Likes
+#--------------------------------------------------
+class PostLike(View):
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 

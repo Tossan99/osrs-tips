@@ -76,6 +76,7 @@ a:hover {
 .like-icon {
     font-size: 30px;
     color: #EC7063;
+    cursor: pointer;
 }
 
 .comment-icon {
@@ -91,6 +92,7 @@ a:hover {
 .delete-icon {
     font-size: 35px;
     color: #818589;
+    cursor: pointer;
 }
 
 .category-icons {
