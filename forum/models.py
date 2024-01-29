@@ -2,9 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
 CATEGORY = (
-    (0, "None"), (1, "PvM"), (2, "PvP"), (3, "Skilling"), (4, "Questing"))
+    ("none", "None"), ("pvm", "PvM"), ("pvp", "PvP"), ("skilling", "Skilling"), ("questing", "Questing"))
 
 # Create your models here.
 class Post(models.Model):
@@ -12,7 +11,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="forum_posts")
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    category = models.IntegerField(choices=CATEGORY, default=0)
+    category = models.TextField(choices=CATEGORY, default="none")
     content = models.TextField(max_length=2000, blank=True)
     excerpt = models.TextField(max_length=200, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)

@@ -166,6 +166,32 @@ a:hover {
     box-shadow: 0 0 0 0.2rem rgb(236, 112, 99, .5);
 }
 
+/* Badges ---------------------*/
+.none {
+    background-color: #7F8C8D;
+    text-transform: capitalize;
+}
+
+.pvm {
+    background-color: #1E8449;
+    text-transform: capitalize;
+}
+
+.pvp {
+    background-color: #C0392B;
+    text-transform: capitalize;
+}
+
+.skilling {
+    background-color: #6E2C00;
+    text-transform: capitalize;
+}
+
+.questing {
+    background-color: #2874A6;
+    text-transform: capitalize;
+}
+
 /* Misc ---------------------*/
 .not-approved {
     opacity: 0.5;
