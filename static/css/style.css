@@ -69,6 +69,12 @@ a:hover {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
 
+/* Posts pages ---------------------*/
+.card-img-top {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
 /* About page ---------------------*/
 .about-logo {
     border: 7px solid #533c00;
