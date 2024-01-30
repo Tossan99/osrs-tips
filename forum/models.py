@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 CATEGORY = (
@@ -29,6 +31,16 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} | Written by {self.author}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            # Generate a unique slug based on the title and timestamp
+            base_slug = slugify(self.title)
+            timestamp = timezone.now().strftime('%Y%m%d%H%M%S')
+            unique_slug = f"{base_slug}-{timestamp}"
+            self.slug = unique_slug
+
+        super().save(*args, **kwargs)
 
 class Comment(models.Model):
     author = models.ForeignKey(

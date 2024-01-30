@@ -92,7 +92,6 @@ def post_create(request):
         if post_form.is_valid() and request.user.is_authenticated:
             post = post_form.save(commit=False)
             post.author = request.user
-            post.slug = slugify(post.title)
             post.save()
             messages.add_message(request, messages.SUCCESS, 'Post submitted and awaiting approval')
             return redirect("home")
