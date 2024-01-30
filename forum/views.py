@@ -13,7 +13,7 @@ def redirect_view(request):
         return redirect('home')
     elif not request.user.is_authenticated:
         return redirect('about')
-    
+
 
 # Home page
 #--------------------------------------------------
@@ -62,12 +62,14 @@ def post_detail(request, slug):
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
+        if comment_form.is_valid() and request.user.is_authenticated:
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval!')
+            messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error submitting comment')
     
     comment_form = CommentForm()
 
@@ -87,14 +89,16 @@ def post_create(request):
     post_form = PostForm()
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
-        if post_form.is_valid():
+        if post_form.is_valid() and request.user.is_authenticated:
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
             post.save()
             messages.add_message(request, messages.SUCCESS, 'Post submitted and awaiting approval')
             return redirect("home")
-      
+        else:
+            messages.add_message(request, messages.ERROR, 'Error submitting post')
+
     return render(
         request,
         "forum/post_create.html",
@@ -108,21 +112,24 @@ def post_edit(request, post_id):
 
     if request.method == "POST":
         post_form = PostForm(request.POST, instance=post)
-        if post_form.is_valid():
+        if post_form.is_valid() and post.author == request.user:
             post_form.save()
+            messages.add_message(request, messages.SUCCESS, 'Post edited and awaiting approval')
             return redirect("home")
+        else:
+            messages.add_message(request, messages.ERROR, 'Error editing post')
+
     else:
         post_form = PostForm(instance=post)
     
-    return render(request, "forum/post_edit.html",
-            {"post_form": post_form,})
+    return render(request, "forum/post_edit.html", {"post_form": post_form,})
 
 
 def post_delete(request, post_id):
     post = Post.objects.get(pk=post_id)
     if post.author == request.user:
         post.delete()
-        messages.add_message(request, messages.SUCCESS,'Post deleted successfully!')
+        messages.add_message(request, messages.SUCCESS,'Post deleted successfully')
     else:
         messages.add_message(request, messages.ERROR, 'Error deleting post')
     
@@ -142,9 +149,9 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment updated successfully')
+            messages.add_message(request, messages.SUCCESS, 'Comment edited and awaiting approval')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment')
+            messages.add_message(request, messages.ERROR, 'Error editing comment')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -169,12 +176,13 @@ def comment_delete(request, slug, comment_id):
 class PostLike(View):
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
-        if post.likes.filter(id=request.user.id).exists():
-            post.likes.remove(request.user)
-        else:
-            post.likes.add(request.user)
-        
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        if request.user.is_authenticated:
+            if post.likes.filter(id=request.user.id).exists():
+                post.likes.remove(request.user)
+            else:
+                post.likes.add(request.user)
+            
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 # Error
 #--------------------------------------------------
