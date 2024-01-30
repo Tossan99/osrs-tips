@@ -104,28 +104,19 @@ def post_create(request):
     )
 
 def post_edit(request, post_id):
-    if request.method == "GET":
-        post = Post.objects.get(pk=post_id)
-        return render(
-            request,
-             "forum/post_edit.html",
-            {
-                "post": post
-            },
-        )
-    elif request.method == "POST":
-        post = Post.objects.update_or_create(
-            pk=post_id,
-            defaults={
-                "title": request.POST["title"],
-                "category": request.POST["category"],
-                "content": request.POST["content"],
-                "excerpt": request.POST["excerpt"],
-                "post_image": request.FILES["post_image"],
-            },
-        )
-        messages.add_message(request, messages.SUCCESS, 'Post updated successfully')
-        return redirect("home")
+    post = Post.objects.get(pk=post_id)
+
+    if request.method == "POST":
+        post_form = PostForm(request.POST, instance=post)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect("home")
+    else:
+        post_form = PostForm(instance=post)
+    
+    return render(request, "forum/post_edit.html",
+            {"post_form": post_form,})
+
 
 def post_delete(request, post_id):
     post = Post.objects.get(pk=post_id)

@@ -6,34 +6,26 @@
 <!-- post_create.html content starts here -->
 <!-- Create post form -->
 <div class="container-sm card my-5 content-background">
-    <div class="row justify-content-sm-center">
-        <h1 class="m-4 text-center">Create a post</h1>
+    <div class="row justify-content-sm-center px-md-2">
+        <h1 class="my-4 text-center">Create a post</h1>
         <form id="postForm" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="post_image">Image*</label>
-            <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}" required>
-            <br>
-            <label for="category">Category*</label>
-            <select name="category" id="category" class="form-select">
-                <option value="none">None</option>
-                <option value="pvm">PvM</option>
-                <option value="pvp">PvP</option>
-                <option value="skilling">Skilling</option>
-                <option value="questing">Questing</option>
-            </select>
-            <br>
-            <label for="title">Title*</label>
-            <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
-            <br>
-            <label for="content">Content*</label>
-            <textarea type="text" id="content" name="content" rows="10" cols="50" class="form-control"
-                required>{{ post.content | safe }}</textarea>
-            <br>
-            <label for="excerpt">Excerpt*</label><br>
-            <textarea type="text" id="excerpt" name="excerpt" rows="5" cols="50" class="form-control"
-                required>{{ post.excerpt }}</textarea>
-            <br>
-            <button id="submitButton" type="submit" class="btn btn-lg btn-normal mb-4">Submit</button>
+            <div class="mb-3">
+                {{ post_form.title|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+                {{ post_form.post_image|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+                {{ post_form.category|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+                {{ post_form.excerpt|as_crispy_field }}
+            </div>
+            <div class="mb-3">
+                {{ post_form.content|as_crispy_field|safe }}
+            </div>
+            <button type="submit" class="btn btn-lg btn-normal mb-4">Submit</button>
         </form>
     </div>
 </div>

@@ -35,7 +35,7 @@
         </div>
         <hr>
         {% for post in object_list %}
-        <div class="col-lg-4 col-md-6 p-3 {% if not post.approved and post.author == request.user %}not-approved{% elif not post.approved %}d-none{% endif %}">
+        <div class="col-xl-4 col-lg-6 col-md-12 p-3 {% if not post.approved and post.author == request.user %}not-approved{% elif not post.approved %}d-none{% endif %}">
             <a href="{% url 'post_detail' post.slug %}" class="">
                 <div class="card h-100 card-background">
                     {% if "placeholder" in post.post_image.url %}
