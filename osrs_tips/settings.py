@@ -16,6 +16,7 @@ from django.contrib.messages import constants as messages
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -149,7 +150,11 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-SUMMERNOTE_THEME = 'bs4'
+cloudinary.config(
+    secure=True
+)
+
+SUMMERNOTE_THEME = 'bs5'
 
 
 # Static files (CSS, JavaScript, Images)
