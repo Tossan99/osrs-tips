@@ -55,9 +55,7 @@
                     {% endif %}
                     <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
                     {% if post.created_on.value == post.updated_on.value %}
-                    {% else %}
                     <p class="text-muted fst-italic px-2 m-0">Last edited: {{ post.updated_on }}</p>
-                    {% endif %}
                 </div>
             </a>
         </div>

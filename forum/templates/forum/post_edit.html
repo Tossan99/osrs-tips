@@ -9,12 +9,10 @@
         <h1 class="m-4 text-center">Edit post</h1>
         <form action="{% url 'post_edit' post.pk %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="image">Image*</label>
-            <br>
+            <label for="post_image">Image*</label>
             <input type="file" id="post_image" name="post_image" class="form-control" value="{{ post.post_image }}" required>
             <br>
             <label for="category">Category*</label>
-            <br>
             <select name="category" id="category" class="form-select">
                 <option value="none">None</option>
                 <option value="pvm">PvM</option>
@@ -24,11 +22,9 @@
             </select>
             <br>
             <label for="title">Title*</label>
-            <br>
             <input type="text" id="title" name="title" class="form-control" value="{{ post.title }}" required>
             <br>
             <label for="content">Content*</label>
-            <br>
             <textarea type="text" id="content" name="content" rows="10" cols="50" class="form-control"
                 required>{{ post.content | safe }}</textarea>
             <br>
