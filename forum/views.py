@@ -185,3 +185,10 @@ class PostLike(View):
         
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+# Error
+#--------------------------------------------------
+def error_404(request, exception):
+    """
+    404 error page
+    """
+    return render(request, "404.html", status=404)

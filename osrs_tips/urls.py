@@ -24,3 +24,5 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', include("forum.urls"), name='home'),
 ]
+
+handler404 = 'forum.views.error_404'

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- 404.html content starts here -->
+<div class="container-sm card my-5 content-background">
+    <div class="row p-3">
+        <h1>Error 404: Not Found</h1>
+        <p class="fw-bold">We couldn't find the page you were looking for.</p>
+        <hr>
+        <div class="col">
+            <a class="btn btn-lg btn-normal m-3" href="{% url 'home' %}">Go back to Home</a>
+        </div>
+    </div>
+</div>
+<!-- 404.html content ends here -->
+
+{% endblock %}
