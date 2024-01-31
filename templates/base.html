@@ -79,7 +79,9 @@
                         </li>
                     </ul>
                 </div>
+                {% if user.is_authenticated %}
                 <p class="fs-6 fw-bold p-2 m-0">{{user}}</p>
+                {% endif %}
                 <a class="me-xl-5 m-0" href="{% url 'home' %}">
                     <i class="fa-solid fa-user profile-icon"></i>
                 </a>
