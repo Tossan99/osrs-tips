@@ -71,6 +71,7 @@ a:hover {
 
 /* Posts pages ---------------------*/
 .card-img-top {
+    /* Edited Bootstrap5 class */
     aspect-ratio: 1 / 1;
     object-fit: cover;
 }
@@ -173,11 +174,6 @@ a:hover {
 }
 
 /* Badges ---------------------*/
-.none {
-    background-color: #7F8C8D;
-    text-transform: capitalize;
-}
-
 .pvm {
     background-color: #1E8449;
     text-transform: capitalize;
