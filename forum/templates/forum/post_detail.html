@@ -4,11 +4,18 @@
 {% block content %}
 
 <!-- post_detail.html content starts here -->
-<!-- Post -->
 <div class="container-sm card my-5 content-background">
     <div class="row justify-content-sm-center p-3">
-        <h2>{{post.title}}</h2>
-        <h5>Written by: {{post.author}}</h5>
+        <div class="col m-xl-5 m-md-4 m-2 p-0">
+            {% if "placeholder" in post.post_image.url %}
+            <img src="{% static 'images/placeholder-image.jpg' %}" style="width: 100%; height: auto; border-radius: 0.25rem;"
+                alt="{{ post.post_image.url }} image">
+            {% else %}
+            <img src="{{ post.post_image.url }}" style="width: 100%; height: auto; border-radius: 0.50rem;" alt="{{ post.post_image.url }} image">
+            {% endif %}
+        </div>
+        <h1 class="text-center">{{post.title}}</h1>
+        <h4 class="text-center">Written by: {{post.author}}</h4>
         <hr>
         <p id="post{{ post.id }}">{{ post.content | safe }}</p>
         <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
@@ -66,10 +73,10 @@
         {% for comment in post_comments %}
         <div class="card card-background col-11 mb-3 p-3 {% if not comment.approved and comment.author == user %}not-approved{% elif not comment.approved %}d-none{% endif %}">
             <div class="row mt-2">
-                <div class="col-6">
+                <div class="col-4">
                     <h5 class="mb-1">{{ comment.author }}</h5>
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                     {% if not comment.approved and comment.author == user %}
                     <p class="float-end mb-1">- comment is awaiting approval</p>
                     {% endif %}
@@ -79,11 +86,11 @@
             <div class="mt-2" id="comment{{ comment.id }}">{{ comment.content | linebreaks }}</div>
             {% if user.is_authenticated and comment.author == user %}
             <div class="row mt-2">
-                <div class="col-6">
+                <div class="col-5">
                     <button class="btn btn-edit me-1" comment_id="{{ comment.id }}">Edit</button>
                     <button class="btn btn-delete btn-delete-comment" comment_id="{{ comment.id }}">Delete</button>
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                     <p class="text-muted fst-italic text-italic float-end m-0">
                         Created on: {{ post.created_on }}
                         <br>Last edited: {{ post.updated_on }}
