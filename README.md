@@ -3,7 +3,7 @@
 
 <center> 
 
-![Logo](README_files/logo.JPG)
+![Logo](README_files/logo.png)
 
 Welcome to OSRS Tips, your go-to spot for Old School RuneScape wisdom! Join our friendly community where players share helpful tips and tricks. Whether you're a seasoned player or just starting out, find advice on boss battles, skilling, and the best gear. Contribute your own tips or explore the forums for valuable insights from our passionate community.
 
@@ -68,7 +68,7 @@ and an option to log in, sign up or continue to posts as a guest. First time use
 
 ## Registered User
 
-Once registered, users can fully engage with the forum. These include creating your own posts, liking others and leaving comments
+Once registered, users can fully engage with the forum. These include creating your own posts, liking others and leaving comments.
 
 ## Admin user
 
@@ -100,10 +100,15 @@ For more information vissit the complete [Kanban Board here.](https://github.com
 ![Kanban Board](README_files/kanban-board.JPG)
 
 # Design
+The forum design brings back the nostalgic feel of Old School RuneScape with warm colors and classic images. It's like a visual tribute to the game's enduring charm, making discussions on quests, skilling, and combat more enjoyable for users.
 
-text
+## Logo
 
-## Design Choices
+The logo mimics the classic OSRS logo with the sword in between the text.
+<br>
+The Logo was created with the help of [Looka](https://looka.com/onboarding)
+
+![Logo](README_files/logo.png)
 
 ## Fonts
 
@@ -113,69 +118,93 @@ The site uses Roboto Slab for headings and Roboto for paragraphs. These fonts bl
 
 ## Background
 
-The background image gives the user that clasic nostalgic Old School Runescape feeling from the old days.
+The background image gives the user the classic, nostalgic Old School RuneScape vibe, transporting users back to the old days of the game.
 
 ![Background](README_files/background.JPG)
 
 ## Color
 
 The color palette, with its earthy tones and warm colors, makes the forum look inviting and put together. It finds a nice balance between being easy to read and looking good, making the user experience better overall.
+<br>
+This color palette was created with the help of [Coolors.](https://coolors.co/)
 
 ![Color Palette image](README_files/color-palette.JPG)
 
-### Wireframes
+## Wireframes
 
-<details><summary>Landing / About page</summary>
-<img src="">
+This wireframe is a simple layout sketch used in the early design stages to plan the structure and key elements of the forum. It provides a visual guide without delving into specific details, aiding in the initial planning of the design.
+<br>
+This wireframe was created with the help of [Balsamiq.](https://balsamiq.com/)
+
+<details><summary>Home page</summary>
+<img src="README_files/home_page.JPG">
 </details>
-<details><summary>Sign Up page</summary>
-<img src="">
+<details><summary>Landing/About page</summary>
+<img src="README_files/about_page.JPG">
 </details>
 <details><summary>Log In page</summary>
-<img src="">
+<img src="README_files/login_page.JPG">
 </details>
-<details><summary>Log Out page</summary>
-<img src="">
-</details>
-<details><summary>Posts page</summary>
-<img src="">
-</details>
-<details><summary>Create / Edit Post page</summary>
-<img src="">
+<details><summary>Create/Edit Post page</summary>
+<img src="README_files/create_post_page.JPG">
 </details>
 <details><summary>Post Details page</summary>
-<img src="">
+<img src="README_files/post_detail_page.JPG">
 </details>
 
+During development, the designs have evolved and changed due to testing and user feedback. As a result, the final implementation may vary from these initial wireframes.
 
 # Database
 
-The database stucture has been created in [dbdiagram.io](https://dbdiagram.io/home)
-<center>
+Mapping out the database structure before coding is crucial for organizing information, reducing errors, and improving efficiency. That is why a simple Database schema was made before the start of development.
+<br>
+For the database, a relational database[(ElephantSQL)](https://customer.elephantsql.com/instance) was employed, utilizing tables and keys to maintain an organized dataset.
+<br>
+This database schema was created with the help of [dbdiagram.io.](https://dbdiagram.io/home)
 
 ![Database Schema image](README_files/database.JPG)
 
-</center>
-
 ## Forum Database Schema
 
-### User Table
+### User Model
 
-- 
+The `User` entity is built in to Django and contains important information about each person using the forum.
 
-### Post Table
+- `user_id`: A unique identifier for each user (Primary Key).
+- `username`: The username of the user.
+- `email`: The email the user.
+- `password`: The pasword of user.
 
-- 
+### Post Model
 
-### Commetns Table
+The `Post` entity represents posts made by users:
 
-- 
+- `post_id`: A unique identifier for each `Post` (Primary Key).
+- `author`: A foreign key reference to the `User` entity.
+- `title`: The title for the `Post`.
+- `slug`: The slug for the `Post` (generated with the `title`).
+- `category`: The type of category chosen for the `Post`
+- `content`: The `Post`'s content.
+- `excerpt`: A short blurb about the `Post`.
+- `created_on`: A DateTimeField indicating when the `Post` was created.
+- `updated_on`: A DateTimeField indicating when the `Post` was last edited.
+- `approved`: A BooleanField only accessible through the admin page.
+- `post_image`: The image representing the `Post`.
+- `likes`: A ManyToManyField keeping track of `User`'s likes on the `Post`.
 
-### Like Table
+### Comment Model
 
-- like
+The `Comment` entity represents comments made by users:
 
-text
+- `comment_id`: A unique identifier for each `Comment` (Primary Key).
+- `post_id`: A foreign key reference to the `Post` entity.
+- `author`: A foreign key reference to the `User` entity.
+- `content`: The `Comment`'s content.
+- `created_on`: A DateTimeField indicating when the `Comment` was created.
+- `updated_on`: A DateTimeField indicating when the `Comment` was last edited.
+- `approved`: A BooleanField only accessible through the admin page.
+
+This database schema defines the structure and relationships for the forum application, including users, posts and comments.
 
 # Technologies Used
 
@@ -188,15 +217,23 @@ text
 
 ### Frameworks
 
-- Django
+- **Django:** Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+- **Crispy Forms:** Django-crispy-forms is an application that helps to manage Django forms. It allows adjusting forms' properties (such as method, send button or CSS classes) on the backend without having to re-write them in the template.
+- **Summernote:** Summernote is a lightweight, open-source WYSIWYG (What You See Is What You Get) text editor for web development. It allows users to easily create and customize rich-text content on websites, providing a user-friendly interface for text editing and formatting.
+- **Bootstrap v5.0:** Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites, Bootstrap provides a collection of syntax for template designs.
+- **Cloudinary:** A cloud-based media management platform used for storing and serving images in the Blog Collective project.
 
 ### Database
 
-- ElephantSQL
+- **ElephantSQL:** ElephantSQL is a service that offers PostgreSQL database hosting. It removes the tedious work by automating the setup and running of Postgres clusters. It also automates the tasks such as upgrades and backups
 
 ### Tools
 
--
+- **GitHub:** GitHub is a web-based platform for version control using Git. It facilitates collaborative software development, allowing multiple contributors to work on projects, track changes, and manage code repositories.
+- **Heroku:** Heroku is a cloud platform that enables developers to deploy, manage, and scale applications easily. It supports various programming languages and eliminates the need for infrastructure management, making it simpler to focus on building and deploying applications.
+- **Google Fonts:** Google Fonts is a free and extensive collection of web fonts provided by Google. It allows website developers to embed customizable fonts, enhancing the typography of web content.
+- **Font Awesome:** Font Awesome is a popular icon toolkit that provides a wide range of scalable vector icons. It's commonly used in web development to enhance the visual appeal and functionality of websites by easily incorporating icons into the design.
+
 
 ### Supporting Libraries and Packages
 
@@ -255,25 +292,51 @@ x
 
 # Features
 
-### Landing Page
+### Landing/About Page
 
-### Blog Pages
+- the landing page<details><summary>Landing/About Page</summary><img src="README/.JPG"></details>
 
-### Blog Detail Page
+- the navbar<details><summary>Navbar</summary><img src="README/.JPG"></details>
 
-<details><summary>Se</summary><img src=""></details>
+- footer <details><summary>Footer</summary><img src="README/.JPG"></details>
 
-### User Account Management
+### Forum Page
 
-<details><summary></summary><img src=""></details>
+- forum<details><summary>Forum Page</summary><img src="README/.JPG"></details>
 
-<details><summary> Screenshot</summary><img src=""></details>
+- categories<details><summary>Categories</summary><img src="README/.JPG"></details>
 
-### Navigation
+### Post Detail Page
 
-</details><details><summary>Screenshot</summary><img src=""></details>
+- post detail<details><summary>Post Detail Page</summary><img src="README/.JPG"></details>
+
+- comments likes edit<details><summary>Comments, Likes, Edit and Delete</summary><img src="README/.JPG"></details>
+
+- comment on a post<details><summary>Leave a Comment</summary><img src="README/.JPG"></details>
+
+- comments <details><summary>Comments</summary><img src="README/.JPG"></details>
+
+### Create Post Page
+
+- create a post<details><summary>Create Post</summary><img src="README/.JPG"></details>
+
+### Account Pages
+
+- sing up<details><summary>Sign Up</summary><img src="README/.JPG"></details>
+
+- log in<details><summary>Log In</summary><img src="README/.JPG"></details>
+
+- log out<details><summary>Log Out</summary><img src="README/.JPG"></details>
+
+### Error pages
+
+- error 404<details><summary>Error 404</summary><img src="README/.JPG"></details>
 
 ### Future Features
+
+- **Search bar:**
+- **Profile Page:**
+- **Sort by:**
 
 # Testing
 
