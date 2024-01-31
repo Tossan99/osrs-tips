@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<!-- index.html content starts here -->
+<!-- category_questing.html content starts here -->
 <div class="container-sm card my-5 content-background">
     <div class="row justify-content-sm-center p-3">
         <div class="col-md-4 col-12 mb-3">
@@ -35,33 +35,42 @@
         </div>
         <hr>
         {% for post in object_list %}
-        <div class="col-lg-4 col-md-6 p-3 {% if not post.approved and post.author == request.user %}not-approved{% elif not post.approved %}d-none{% endif %}">
+        <div class="col-xl-4 col-lg-6 col-md-12 p-3 {% if not post.approved and post.author == request.user %}not-approved{% elif not post.approved %}d-none{% endif %}">
             <a href="{% url 'post_detail' post.slug %}" class="">
-                <div class="card card-background">
+                <div class="card h-100 card-background">
                     {% if "placeholder" in post.post_image.url %}
                     <img src="{% static 'images/placeholder-image.jpg' %}" alt="{{post.title}} image">
                     {% else %}
-                    <img src=" {{ post.post_image.url }}" alt="{{post.title}} image">
+                    <img src=" {{ post.post_image.url }}" alt="{{post.title}} image" class="card-img-top img-fluid">
                     {% endif %}
-                    <h3 class="px-2 pt-1 m-0">{{post.title}} <span
-                            class="{% if post.category  == 'none' %}d-none{% else %} badge rounded-pill {{post.category}}{% endif %}">
-                            {{post.category}}</span>
-                    </h3>
-                    <h5 class="fst-italic px-2 pt-1 m-0">Author: {{ post.author }}</h5>
-                    <hr class="m-1">
-                    <p class="p-2 mb-1">{{post.excerpt}}</p>
-                    {% if not post.approved %}
-                    <h4 class="ps-2"><bold>Post is awaiting approval</bold></h4>
-                    {% endif %}
-                    <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
-                    {% if post.created_on.value == post.updated_on.value %}
-                    <p class="text-muted fst-italic px-2 m-0">Last edited: {{ post.updated_on }}</p>
+                    <div class="card-header">
+                        <h4 class="mb-1">{{post.title}} <span
+                                class="{% if post.category  == 'none' %}d-none{% else %} badge rounded-pill {{post.category}}{% endif %}">
+                                {{post.category}}</span>
+                        </h4>
+                        <div class="col">
+                            <h5 class="fst-italic m-0">Author: {{ post.author }}</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% if not post.approved %}
+                        <h4 class="">
+                            <bold>Post is awaiting approval</bold>
+                        </h4>
+                        {% else %}
+                        <p class="">{{post.excerpt}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted fst-italic m-0">Created on: {{ post.created_on }}</p>
+                        <p class="text-muted fst-italic m-0">Last edited: {{ post.updated_on }}</p>
+                    </div>
                 </div>
             </a>
         </div>
         {% endfor %}
     </div>
 </div>
-<!-- index.html content ends here -->
+<!-- category_questing.html content ends here -->
 
 {% endblock %}

@@ -22,7 +22,7 @@ class PostForm(forms.ModelForm):
                        "required": "required"}),
             "excerpt": forms.TextInput(
                 attrs={"class": "form-control",
-                       "placeholder": "Max 100 characters",
+                       "placeholder": "Max 150 characters",
                        "required": "required"}),
             "category": forms.Select(
                 attrs={"class": "form-control",
@@ -32,4 +32,12 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('content',)
+        fields = [
+            "content",
+        ]
+
+        widgets = {
+            "content": forms.TextInput(
+                attrs={"class": "form-control",
+                       "placeholder": "Max 500 characters",}),
+        }

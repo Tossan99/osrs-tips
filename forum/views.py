@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.utils.text import slugify
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-from django.template import loader
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
@@ -25,21 +24,21 @@ class PostList(generic.ListView):
 # Category pages
 #--------------------------------------------------
 class PvmList(generic.ListView):
-    queryset = Post.objects.filter(category=1)
+    queryset = Post.objects.filter(category="pvm")
     template_name = "forum/category_pvm.html"
 
 
 class PvpList(generic.ListView):
-    queryset = Post.objects.filter(category=2)
+    queryset = Post.objects.filter(category="pvp")
     template_name = "forum/category_pvp.html"
 
 
 class SkillingList(generic.ListView):
-    queryset = Post.objects.filter(category=3)
+    queryset = Post.objects.filter(category="skilling")
     template_name = "forum/category_skilling.html"
 
 class QuestingList(generic.ListView):
-    queryset = Post.objects.filter(category=4)
+    queryset = Post.objects.filter(category="questing")
     template_name = "forum/category_questing.html"
 
 

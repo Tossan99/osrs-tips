@@ -11,11 +11,11 @@ CATEGORY = (
 class Post(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="forum_posts")
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     category = models.TextField(choices=CATEGORY, default="none")
-    content = models.TextField(max_length=2000, blank=True)
-    excerpt = models.TextField(max_length=200, blank=True)
+    content = models.TextField(max_length=5000, blank=True)
+    excerpt = models.TextField(max_length=150, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)

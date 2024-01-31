@@ -44,11 +44,13 @@
                     <img src=" {{ post.post_image.url }}" alt="{{post.title}} image" class="card-img-top img-fluid">
                     {% endif %}
                     <div class="card-header">
-                        <h3 class="m-0">{{post.title}} <span
+                        <h4 class="mb-1">{{post.title}} <span
                                 class="{% if post.category  == 'none' %}d-none{% else %} badge rounded-pill {{post.category}}{% endif %}">
                                 {{post.category}}</span>
-                        </h3>
-                        <h5 class="fst-italic m-0">Author: {{ post.author }}</h5>
+                        </h4>
+                        <div class="col">
+                            <h5 class="fst-italic m-0">Author: {{ post.author }}</h5>
+                        </div>
                     </div>
                     <div class="card-body">
                         {% if not post.approved %}

@@ -12,10 +12,7 @@
         <hr>
         <p id="post{{ post.id }}">{{ post.content | safe }}</p>
         <p class="text-muted fst-italic text-italic px-2 m-0">Created on: {{ post.created_on }}</p>
-        {% if post.created_on.value == post.updated_on.value %}
-        {% else %}
         <p class="text-muted fst-italic px-2 m-0">Last edited: {{ post.updated_on }}</p>
-        {% endif %}
         <hr>
         <div class="row">
             <div class="col-2">
@@ -70,13 +67,11 @@
         <div class="card card-background col-11 mb-3 p-3 {% if not comment.approved and comment.author == user %}not-approved{% elif not comment.approved %}d-none{% endif %}">
             <div class="row mt-2">
                 <div class="col-6">
-                    <h5 class="">{{ comment.author }}</h5>
+                    <h5 class="mb-1">{{ comment.author }}</h5>
                 </div>
                 <div class="col-6">
-                    <p class="text-muted fst-italic text-italic float-end m-0">Created on: {{ post.created_on }}</p>
-                    {% if comment.created_on.value == comment.updated_on.value %}
-                    {% else %}
-                    <p class="text-muted fst-italic float-end m-0">Last edited: {{ post.updated_on }}</p>
+                    {% if not comment.approved and comment.author == user %}
+                    <p class="float-end mb-1">- comment is awaiting approval</p>
                     {% endif %}
                 </div>
             </div>
@@ -89,9 +84,10 @@
                     <button class="btn btn-delete btn-delete-comment" comment_id="{{ comment.id }}">Delete</button>
                 </div>
                 <div class="col-6">
-                     {% if not comment.approved and comment.author == user %}
-                    <p class="float-end">- comment is awaiting approval</p>
-                    {% endif %}
+                    <p class="text-muted fst-italic text-italic float-end m-0">
+                        Created on: {{ post.created_on }}
+                        <br>Last edited: {{ post.updated_on }}
+                    </p>
                 </div>
             </div>
             {% endif %}

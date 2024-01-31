@@ -11,7 +11,7 @@
     <div class="row justify-content-sm-center p-4">
         <h1>{% trans "Sign In" %}</h1>
         <h5>{% blocktrans %}If you don't have an account?
-            <a href="{{ signup_url }}" class="btn btn-sm btn-normal ms-2">Sign Up!</a>{% endblocktrans %}
+            <a href="{{ signup_url }}" class="btn btn-normal ms-2">Sign Up!</a>{% endblocktrans %}
         </h5>
         <hr>
         <form class="login" method="POST" action="{% url 'account_login' %}">
