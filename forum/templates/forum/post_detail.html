@@ -5,8 +5,8 @@
 
 <!-- post_detail.html content starts here -->
 <div class="container-sm card my-5 content-background">
-    <div class="row justify-content-sm-center p-3">
-        <div class="col m-xl-5 m-md-4 m-2 p-0">
+    <div class="row justify-content-center p-3">
+        <div class="col-8 m-md-4 m-2 p-0">
             {% if "placeholder" in post.post_image.url %}
             <img src="{% static 'images/placeholder-image.jpg' %}" style="width: 100%; height: auto; border-radius: 0.25rem;"
                 alt="{{ post.post_image.url }} image">
