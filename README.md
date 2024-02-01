@@ -54,6 +54,8 @@ OSRS Tips is committed to creating a dynamic and user-friendly platform for the 
 - **Content Quality:** Ensure the platform maintains a high standard of valuable content through effective content moderation.
 
 - **User Retention:** Encourage repeat visits and user loyalty by continuously providing fresh and relevant content.
+  
+[Back to top ⇧](#table-of-contents)
 
 # User Experience
 
@@ -98,6 +100,8 @@ Administrative features are accessible through the Django admin panel. These inc
 For more information vissit the complete [Kanban Board here.](https://github.com/Tossan99/osrs-tips/projects?query=is%3Aopen)
 
 ![Kanban Board](README_files/kanban-board.JPG)
+
+[Back to top ⇧](#table-of-contents)
 
 # Design
 The forum design brings back the nostalgic feel of Old School RuneScape with warm colors and classic images. It's like a visual tribute to the game's enduring charm, making discussions on quests, skilling, and combat more enjoyable for users.
@@ -154,6 +158,8 @@ This wireframe was created with the help of [Balsamiq.](https://balsamiq.com/)
 
 During development, the designs have evolved and changed due to testing and user feedback. As a result, the final implementation may vary from these initial wireframes.
 
+[Back to top ⇧](#table-of-contents)
+
 # Database
 
 Mapping out the database structure before coding is crucial for organizing information, reducing errors, and improving efficiency. That is why a simple Database schema was made before the start of development.
@@ -206,6 +212,8 @@ The `Comment` entity represents comments made by users:
 
 This database schema defines the structure and relationships for the forum application, including users, posts and comments.
 
+[Back to top ⇧](#table-of-contents)
+
 # Technologies Used
 
 ### Languages
@@ -256,6 +264,8 @@ This database schema defines the structure and relationships for the forum appli
 - urllib3==1.26.18
 - whitenoise==5.3.0
 
+[Back to top ⇧](#table-of-contents)
+
 # Agile Methodology
 
 This project was developed using the Agile methodology.<br>
@@ -300,6 +310,8 @@ We document bugs found during development as GitHub issues. This provides detail
 ### User Story Distribution (MoSCoW)
 
 For this project, MoSCoW was used for the userstories to prioritizes implementation of features. MoSCoW is a project management framework that prioritizes requirements into four categories: Must-haves (critical for success), Should-haves (important), Could-haves (desirable if resources permit), and Won't-haves (explicitly excluded or deferred).
+
+[Back to top ⇧](#table-of-contents)
 
 # Features
 
@@ -351,10 +363,14 @@ These are some features that weren't added due to lack of time.
 - **Profile Page:** A personal profile page that can be edited by the user.
 - **Sort by:** A sort by likes/date function to sort posts.
 
+[Back to top ⇧](#table-of-contents)
+
 # Testing
 The OSRS Tips website underwent a rigorous testing process to ensure its functionality, accessibility, and performance. This encompassed various aspects such as code validation, accessibility checks, performance testing, cross-device compatibility assessments, browser compatibility verification, evaluation of user stories, and the incorporation of user feedback to elevate the overall user experience.
 
 All testing was conducted and documented in [Testing.md](TESTING.md) for easy accessibility.
+
+[Back to top ⇧](#table-of-contents)
 
 # Bugs
 
@@ -368,6 +384,8 @@ All testing was conducted and documented in [Testing.md](TESTING.md) for easy ac
 - [BUG: Images aren't uploaded when uploading in front end](https://github.com/Tossan99/osrs-tips/issues/19)
 
 For more information vissit the complete [Kanban Board here.](https://github.com/Tossan99/osrs-tips/projects?query=is%3Aopen)
+
+[Back to top ⇧](#table-of-contents)
 
 # Deployment and Local Development
 
@@ -454,6 +472,8 @@ Live deployment can be found here [OSRS Tips](https://osrs-tips-1f9070447937.her
 
 The site is now live
 
+[Back to top ⇧](#table-of-contents)
+
 # Credits
 
 ### Django Documentation
@@ -486,4 +506,9 @@ The site is now live
 - [coolors.co](https://coolors.co/)
 - [balsamiq.com](https://balsamiq.com/learn/)
 
+[Back to top ⇧](#table-of-contents)
+
 # Acknowledgments
+
+
+[Back to top ⇧](#table-of-contents)
