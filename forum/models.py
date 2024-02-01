@@ -7,8 +7,10 @@ from cloudinary.models import CloudinaryField
 CATEGORY = (
     ("none", "None"), ("pvm", "PvM"), ("pvp", "PvP"), ("skilling", "Skilling"), ("questing", "Questing"))
 
-# Create your models here.
 class Post(models.Model):
+    """
+    Model for user posts
+    """
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="forum_posts")
     title = models.CharField(max_length=50, unique=True)
@@ -34,7 +36,9 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            # Generate a unique slug based on the title and timestamp
+            """
+            Generate a unique slug based on the title and timestamp
+            """
             base_slug = slugify(self.title)
             timestamp = timezone.now().strftime('%Y%m%d%H%M%S')
             unique_slug = f"{base_slug}-{timestamp}"
@@ -43,6 +47,9 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
 class Comment(models.Model):
+    """
+    Model for users comments
+    """
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="post_commenter")
     post = models.ForeignKey(

@@ -4,6 +4,9 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 class PostForm(forms.ModelForm):
     class Meta:
+        """
+        Form model for creating posts
+        """
         model = Post
         fields = [
             "post_image",
@@ -13,6 +16,9 @@ class PostForm(forms.ModelForm):
             "excerpt",
         ]
         widgets = {
+            """
+            Widgets for the post form input
+            """
             "content": SummernoteWidget(
                 attrs={"class": "form-control",
                        "required": "required"}),
@@ -31,13 +37,10 @@ class PostForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
     class Meta:
+        """
+        Form model for creating comments
+        """
         model = Comment
         fields = [
             "content",
         ]
-
-        widgets = {
-            "content": forms.TextInput(
-                attrs={"class": "form-control",
-                       "placeholder": "Max 500 characters",}),
-        }

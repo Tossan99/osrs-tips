@@ -9,6 +9,9 @@ from .forms import PostForm, CommentForm
 
 
 def redirect_view(request):
+    """
+    Redirects users that aren't loged in to the about page
+    """
     if request.user.is_authenticated:
         return redirect('home')
     elif not request.user.is_authenticated:
@@ -19,6 +22,9 @@ def redirect_view(request):
 # Home page
 #--------------------------------------------------
 class PostList(generic.ListView):
+    """
+    View for displaying all posts
+    """
     queryset = Post.objects.all()
     template_name = "forum/index.html"
 
@@ -27,21 +33,33 @@ class PostList(generic.ListView):
 # Category pages
 #--------------------------------------------------
 class PvmList(generic.ListView):
+    """
+    View for displaying PvM posts
+    """
     queryset = Post.objects.filter(category="pvm")
     template_name = "forum/category_pvm.html"
 
 
 class PvpList(generic.ListView):
+    """
+    View for displaying PvP posts
+    """
     queryset = Post.objects.filter(category="pvp")
     template_name = "forum/category_pvp.html"
 
 
 class SkillingList(generic.ListView):
+    """
+    View for displaying Skilling posts
+    """
     queryset = Post.objects.filter(category="skilling")
     template_name = "forum/category_skilling.html"
 
 
 class QuestingList(generic.ListView):
+    """
+    View for displaying Questing posts
+    """
     queryset = Post.objects.filter(category="questing")
     template_name = "forum/category_questing.html"
 
@@ -50,6 +68,9 @@ class QuestingList(generic.ListView):
 # About page
 #--------------------------------------------------
 def about_page(request):
+    """
+    View for displaying the about page
+    """
     return render(request, "forum/about.html")
 
 
@@ -57,6 +78,9 @@ def about_page(request):
 # Posts
 #--------------------------------------------------
 def post_detail(request, slug):
+    """
+    View for displaying a posts details
+    """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     post_comments = post.post_comments.all().order_by("-created_on")
@@ -66,6 +90,9 @@ def post_detail(request, slug):
         post_liked = True
 
     if request.method == "POST":
+        """
+        Comment form
+        """
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid() and request.user.is_authenticated:
             comment = comment_form.save(commit=False)
@@ -92,6 +119,9 @@ def post_detail(request, slug):
 
 
 def post_create(request):
+    """
+    View for creating posts
+    """
     post_form = PostForm()
     if request.method == "POST":
         post_form = PostForm(request.POST, request.FILES)
@@ -114,6 +144,9 @@ def post_create(request):
 
 
 def post_edit(request, post_id):
+    """
+    View for displaying edit post
+    """
     post = Post.objects.get(pk=post_id)
 
     if request.method == "POST":
@@ -132,6 +165,9 @@ def post_edit(request, post_id):
 
 
 def post_delete(request, post_id):
+    """
+    View to delete post
+    """
     post = Post.objects.get(pk=post_id)
     if post.author == request.user:
         post.delete()
@@ -146,6 +182,9 @@ def post_delete(request, post_id):
 # Comments
 #--------------------------------------------------
 def comment_edit(request, slug, comment_id):
+    """
+    View to edit comments
+    """
     if request.method == "POST":
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
@@ -166,7 +205,7 @@ def comment_edit(request, slug, comment_id):
 
 def comment_delete(request, slug, comment_id):
     """
-    view to delete comment
+    view to delete comments
     """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
@@ -185,6 +224,9 @@ def comment_delete(request, slug, comment_id):
 # Likes
 #--------------------------------------------------
 class PostLike(View):
+    """
+    View to like posts
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if request.user.is_authenticated:
@@ -201,6 +243,6 @@ class PostLike(View):
 #--------------------------------------------------
 def error_404(request, exception):
     """
-    404 error page
+    Redirects users to error 404 page if the url is invalid
     """
     return render(request, "404.html", status=404)
