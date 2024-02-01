@@ -9,7 +9,7 @@ Welcome to OSRS Tips, your go-to spot for Old School RuneScape wisdom! Join our 
 
 At OSRS Tips, we're all about making your RuneScape journey more enjoyable and successful. Dive in, join the conversation, and expand your knowledge with us! ⚔️🛡️
 
-![Am I Responsive Image]()
+![Am I Responsive Image](README_files/am_i_responsive.JPG)
     
 Vissit OSRS Tips live website here! [OSRS Tips](https://osrs-tips-1f9070447937.herokuapp.com/about/)
 
@@ -256,39 +256,50 @@ This database schema defines the structure and relationships for the forum appli
 - urllib3==1.26.18
 - whitenoise==5.3.0
 
-# Methodology
+# Agile Methodology
 
-text
+This project was developed using the Agile methodology.<br>
+All epics and user stories implementation progress was registered using [GitHub](https://github.com/). As the user stories were accomplished, they were moved in the GitHub Kanban board from **ToDo**, to **In Progress**, **Done** and **Incomplete** lists.
+<details>
+<summary>Kanban Board Details</summary>
+
+- **KANBAN BOARD**<br><br>
+    <img src="README_files/kanban-board.JPG"><br><br>
+- **[Epic 1: New Users First Impression](https://github.com/Tossan99/osrs-tips/issues/2)**<br>
+  - [USER STORY: User Navigation](https://github.com/Tossan99/osrs-tips/issues/7)
+  - [USER STORY: Get Familiar With the Website](https://github.com/Tossan99/osrs-tips/issues/6)
+  - [USER STORY: Search bar](https://github.com/Tossan99/osrs-tips/issues/9)
+  - [USER STORY: Register an Account](https://github.com/Tossan99/osrs-tips/issues/10)
+- <img src="README_files/epic1.JPG"><br><br>
+- **[EPIC 2: Registered Users Interaction and Engagement](https://github.com/Tossan99/osrs-tips/issues/3)**<br>
+  - [USER STORY: Personalized Profile](https://github.com/Tossan99/osrs-tips/issues/8)
+  - [USER STORY: Submitting Posts](https://github.com/Tossan99/osrs-tips/issues/11)
+  - [USER STORY: Leaving Comments](https://github.com/Tossan99/osrs-tips/issues/12)
+- <img src="README_files/epic2.JPG"><br><br>
+- **[EPIC 3: Moderator Content Management](https://github.com/Tossan99/osrs-tips/issues/4)**<br>
+  - [USER STORY: Admin Control Over User Accounts](https://github.com/Tossan99/osrs-tips/issues/13)
+  - [USER STORY: Admin Contol Over Posts and Comments](https://github.com/Tossan99/osrs-tips/issues/14)
+  - [USER STORY: Admin Page](https://github.com/Tossan99/osrs-tips/issues/15)
+- <img src="README_files/epic3.JPG"><br><br>
+
+</details>
 
 ### Agile Project Management with GitHub Projects
 
-text
+To make managing projects easier, we use GitHub Projects as a central hub. User stories and tasks are like organized to-do lists, and the GitHub project board shows progress visually.
 
 ### User Stories as GitHub Issues
 
-s
+Turning user stories into GitHub issues helps organize user-focused features. These issues are linked to their corresponding user stories, making it easier to access criteria, tasks, and discussions.
 
 ### Bug Tracking for Seamless Development
 
-schedule
+We document bugs found during development as GitHub issues. This provides details on each bug's characteristics, impact, and how to reproduce it. By adding links to these issues in README.md, users can stay informed about bug fixes and share their thoughts.
 
-### Iterative Development Approach
 
-x
+### User Story Distribution (MoSCoW)
 
-### Future Backlog and Progress
-
-x
-
-**Labels and User Story Distribution (MoSCoW):**
-
-- **Must-Have:** 
-- **Should-Have:** 
-- **Could-Have:** 
-- **Wont-Have:** 
-- **Task:** 
-
-[Kanban board](https://github.com/Tossan99/osrs-tips/projects?query=is%3Aopen).
+For this project, MoSCoW was used for the userstories to prioritizes implementation of features. MoSCoW is a project management framework that prioritizes requirements into four categories: Must-haves (critical for success), Should-haves (important), Could-haves (desirable if resources permit), and Won't-haves (explicitly excluded or deferred).
 
 # Features
 
@@ -334,9 +345,11 @@ x
 
 ### Future Features
 
-- **Search bar:**
-- **Profile Page:**
-- **Sort by:**
+These are some features that weren't added due to lack of time.
+
+- **Search bar:** A search bar that can filter posts by keywords.
+- **Profile Page:** A personal profile page that can be edited by the user.
+- **Sort by:** A sort by likes/date function to sort posts.
 
 # Testing
 The OSRS Tips website underwent a rigorous testing process to ensure its functionality, accessibility, and performance. This encompassed various aspects such as code validation, accessibility checks, performance testing, cross-device compatibility assessments, browser compatibility verification, evaluation of user stories, and the incorporation of user feedback to elevate the overall user experience.
@@ -348,6 +361,13 @@ All testing was conducted and documented in [Testing.md](TESTING.md) for easy ac
 ### Known bugs
 
 ### Fixed bugs
+
+- [BUG: Prepopulate Slug Field](https://github.com/Tossan99/osrs-tips/issues/16) 
+- [BUG: Cloudinary files are not uploaded as secure links](https://github.com/Tossan99/osrs-tips/issues/18)
+- [BUG: Some classes in the navbar isn't applied to the element it tagets](https://github.com/Tossan99/osrs-tips/issues/20)
+- [BUG: Images aren't uploaded when uploading in front end](https://github.com/Tossan99/osrs-tips/issues/19)
+
+For more information vissit the complete [Kanban Board here.](https://github.com/Tossan99/osrs-tips/projects?query=is%3Aopen)
 
 # Deployment and Local Development
 
@@ -436,16 +456,34 @@ The site is now live
 
 # Credits
 
-### Media
-
 ### Django Documentation
 
-### W3 Schools
+- [Built-in template tags and filter](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#date)
+- [Creating forms from models](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/)
+- [Model instance reference](https://docs.djangoproject.com/en/4.2/ref/models/instances/)
+- [Widgets](https://docs.djangoproject.com/en/4.2/ref/forms/widgets/)
 
-### Bootstrap docs
 
-### Various tutorials and YouTube channels
+### Bootstrap Documentation
 
-### Content
+- [Bootstap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+
+### Other guides
+
+- [How to Reset Migrations](https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html)
+- [Git Hub About task lists](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)
+- [HTML form enctype Attribute](https://www.w3schools.com/tags/att_form_enctype.asp)
+- [How to Create a Custom 404 Error Page in Django](https://www.makeuseof.com/create-custom-404-error-page-django/)
+- [Summernote in django](https://github.com/summernote/django-summernote?tab=readme-ov-file#form)
+
+### Content 
+
+- [dbdiagram.io](https://dbdiagram.io/home)
+- [Colot-hex](https://www.color-hex.com/)
+- [looka.com](https://looka.com/)
+- [htmlcolorcodes.com](https://htmlcolorcodes.com/)
+- [amiresponsive.blogspot.com](https://amiresponsive.blogspot.com/)
+- [coolors.co](https://coolors.co/)
+- [balsamiq.com](https://balsamiq.com/learn/)
 
 # Acknowledgments
