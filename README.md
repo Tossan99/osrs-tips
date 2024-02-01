@@ -294,43 +294,43 @@ x
 
 ### Landing/About Page
 
-- the landing page<details><summary>Landing/About Page</summary><img src="README/.JPG"></details>
+- The About page functions as a landing page for new users and provides some short information on what they can expect while browsing the forum. It also provides the option to log in, sign up or continue as a guest.<details><summary>See **Landing/About Page**</summary><img src="README_files/landing_page.JPG"></details>
 
-- the navbar<details><summary>Navbar</summary><img src="README/.JPG"></details>
+- Visitors can easily navigate to different sections of the website through the navigation bar.<details><summary>See **Navbar**</summary><img src="README_files/navbar.JPG"></details>
 
-- footer <details><summary>Footer</summary><img src="README/.JPG"></details>
+- Visitors can access our social media platforms through the footer at the bottom of the page.<details><summary>See **Footer**</summary><img src="README_files/footer.JPG"></details>
 
 ### Forum Page
 
-- forum<details><summary>Forum Page</summary><img src="README/.JPG"></details>
+- Loged in users will be redirected to the forum page but guests can still access it. On this page, users can browse posts and filter by categories. <details><summary>See **Forum Page**</summary><img src="README_files/forum.JPG"></details>
 
-- categories<details><summary>Categories</summary><img src="README/.JPG"></details>
+- The categories button displays a drop down menu when pressed.<details><summary>See **Categories**</summary><img src="README_files/categories.JPG"></details>
 
 ### Post Detail Page
 
-- post detail<details><summary>Post Detail Page</summary><img src="README/.JPG"></details>
+- Clicking on a post in the forum page grants access to its content. Once on the post's detail page, all the content is prominently displayed for easy viewing.<details><summary>See **Post Detail Page**</summary><img src="README_files/post_detail.JPG"></details>
 
-- comments likes edit<details><summary>Comments, Likes, Edit and Delete</summary><img src="README/.JPG"></details>
+- Beneath the post content, you'll find the comment count, along with options for liking, editing, and deleting the post.<details><summary>See **Comments, Likes, Edit and Delete**</summary><img src="README_files/comment_like_edit_delete.JPG"></details>
 
-- comment on a post<details><summary>Leave a Comment</summary><img src="README/.JPG"></details>
+- Registered users have the option to leave comments beneath the post.<details><summary>See *Leave a Comment*</summary><img src="README_files/comment.JPG"></details>
 
-- comments <details><summary>Comments</summary><img src="README/.JPG"></details>
+- Beneath the comment function, users can read other users' comments and edit their own.<details><summary>See **Comments**</summary><img src="README_files/post_comments.JPG"></details>
 
 ### Create Post Page
 
-- create a post<details><summary>Create Post</summary><img src="README/.JPG"></details>
+- Registered users have the ability to create posts and actively contribute to the community.<details><summary>See **Create Post**</summary><img src="README_files/create.JPG"></details>
 
 ### Account Pages
 
-- sing up<details><summary>Sign Up</summary><img src="README/.JPG"></details>
+- New user can become members by signing up.<details><summary>See **Sign Up**</summary><img src="README_files/signup.JPG"></details>
 
-- log in<details><summary>Log In</summary><img src="README/.JPG"></details>
+- Existing users with an account can log in.<details><summary>See **Log In**</summary><img src="README_files/login.JPG"></details>
 
-- log out<details><summary>Log Out</summary><img src="README/.JPG"></details>
+- Loged in users can log out<details><summary>See **Log Out**</summary><img src="README_files/logout.JPG"></details>
 
 ### Error pages
 
-- error 404<details><summary>Error 404</summary><img src="README/.JPG"></details>
+- If a user accidentally navigate to an url that doesn't exist they will instead be redirected to the Error 404 page what provides a "Go back to home" button. <details><summary>See **Error 404**</summary><img src="README_files/error404.JPG"></details>
 
 ### Future Features
 
@@ -339,8 +339,9 @@ x
 - **Sort by:**
 
 # Testing
+The OSRS Tips website underwent a rigorous testing process to ensure its functionality, accessibility, and performance. This encompassed various aspects such as code validation, accessibility checks, performance testing, cross-device compatibility assessments, browser compatibility verification, evaluation of user stories, and the incorporation of user feedback to elevate the overall user experience.
 
-[Testing.md](TESTING.md)
+All testing was conducted and documented in [Testing.md](TESTING.md) for easy accessibility.
 
 # Bugs
 
