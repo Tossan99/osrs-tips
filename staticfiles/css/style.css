@@ -30,6 +30,10 @@ h6 {
 }
 
 /* Nav Bar ---------------------*/
+.username{
+    color: #383B39;
+}
+
 .nav-logo {
     width: 240px;
     height: 70px;
@@ -55,11 +59,11 @@ h6 {
 }
 
 .nav-active {
-    color: black !important;
+    color: #383B39 !important;
 }
 
 a {
-    color: black;
+    color: #383B39;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     text-decoration: none;
 }

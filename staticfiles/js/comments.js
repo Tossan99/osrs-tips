@@ -1,3 +1,5 @@
+
+// Gets all the elements for the functions
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("content");
 const commentForm = document.getElementById("commentForm");
@@ -11,6 +13,7 @@ const deleteModalText = document.getElementById("deleteModalText");
 const deleteModalLabel = document.getElementById("deleteModalLabel");
 
 for (let button of editButtons) {
+    // Edits the targeted comment
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("comment_id");
         let commentContent = document.getElementById(`comment${commentId}`).innerText;
@@ -22,6 +25,7 @@ for (let button of editButtons) {
 }
 
 for (let button of commentDeleteButtons) {
+    // Triggers a modal to delete the targeted comment
     button.addEventListener("click", (e) => {
         let commentId = e.target.getAttribute("comment_id");
         deleteModalLabel.innerText = "Delete Comment?"
@@ -32,6 +36,7 @@ for (let button of commentDeleteButtons) {
 }
 
 for (let button of postDeleteButtons) {
+    // Triggers a modal to delete the targeted post
     button.addEventListener("click", (e) => {
         let postId = e.target.getAttribute("post_id");
         console.log(postId)
