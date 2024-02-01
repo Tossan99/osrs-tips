@@ -35,11 +35,12 @@ Manual testing was conducted on the following elements that appear on every page
 
 ![Footer Test](./docs/images/manual_testing/footer.gif)
 
-- Favicon
-
-![Favicon Test](./docs/images/manual_testing/favicon.png)
-
 ### Functionalities testing
+
+- Categories
+
+![Categories Test](./docs/images/manual_testing/contact.gif)
+
 - Login
 
 ![Login Test](./docs/images/manual_testing/login.gif)
@@ -52,45 +53,47 @@ Manual testing was conducted on the following elements that appear on every page
 
 ![Logout Test](./docs/images/manual_testing/logout.gif)
 
-- Profile Update
-
-![Profile Update Test](./docs/images/manual_testing/profile_update.gif)
-
-- Profile Delete
-
-![Profile Delete Test](./docs/images/manual_testing/profile_delete.gif)
-
-- Verify Profile Deletion (and all book records associated with the user)
-
-![Verify Profile Deletion Test](./docs/images/manual_testing/delete_verify.gif)
-
-- Add Book
+- Create Post
 
 ![Add Book Test](./docs/images/manual_testing/add_book.gif)
 
-- Edit Book
+- Edit Post
 
 ![Edit Book Test](./docs/images/manual_testing/edit_book.gif)
 
-- Delete Book
+- Delete Post
 
 ![Delete Book Test](./docs/images/manual_testing/delete_book.gif)
 
-- Find Book
-
-![Find Book Test](./docs/images/manual_testing/find_book.gif)
-
-- Book Details
+- Post Details
 
 ![Book Details Test](./docs/images/manual_testing/book_details.gif)
 
-- Favourites Page
+- Like Post
 
-![Favourites Page Test](./docs/images/manual_testing/favourites.gif)
+![Book Details Test](./docs/images/manual_testing/book_details.gif)
 
-- Contact Page
+- Comment on Post
+
+![Book Details Test](./docs/images/manual_testing/book_details.gif)
+
+- Edit Comment
+
+![Book Details Test](./docs/images/manual_testing/book_details.gif)
+
+- Delete Comment
+
+![Book Details Test](./docs/images/manual_testing/book_details.gif)
+
+- About Page
 
 ![Contact Page Test](./docs/images/manual_testing/contact.gif)
+
+- Error 404 Page
+
+![Error 404 Page Test](./docs/images/manual_testing/contact.gif)
+
+[Back to top ⇧](#table-of-contents)
 
 ## Automated Testing
 ### Code Validation
@@ -101,43 +104,16 @@ The [W3C Markup Validator](https://validator.w3.org/) service was used to valida
 These are the results of the validation:
 
 - Homepage
-![Homepage HTML Validation](./docs/images/html_css_validation/homepage_html.png)
+![Homepage HTML Validation](/README_files/validation/html-home.JPG)
 
 - Login Page
-![Login Page HTML Validation](./docs/images/html_css_validation/login_html.png)
+![Login Page HTML Validation](/README_files/validation/html-signin.JPG)
 
-- Register Page
-![Register Page HTML Validation](./docs/images/html_css_validation/register_html.png)
+- Logout Page
+![Logout Page HTML Validation](/README_files/validation/html-logout.JPG)
 
-- Contact Page
-![Contact Page HTML Validation](./docs/images/html_css_validation/contact_html.png)
-
-- Find Book Page
-![Find Book Page HTML Validation](./docs/images/html_css_validation/find_book_html.png)
-
-- Add Book Page
-![Add Book Page HTML Validation](./docs/images/html_css_validation/add_book_html.png)
-
-- User Page (My Books Page)
-![User Page (My Books Page) HTML Validation](./docs/images/html_css_validation/user_page_html.png)
-
-- Book Details Page
-![Book Details Page HTML Validation](./docs/images/html_css_validation/book_detail_html.png)
-
-- Edit Book Page (Update Book)
-![Edit Book Page HTML Validation](./docs/images/html_css_validation/edit_book_html.png)
-
-- Delete Book Page
-![Delete Book Page HTML Validation](./docs/images/html_css_validation/delete_book_html.png)
-
-- User Favourites Page
-![User Favourites Page HTML Validation](./docs/images/html_css_validation/favourites_html.png)
-
-- User Profile Page
-![User Profile Page HTML Validation](./docs/images/html_css_validation/user_profile_html.png)
-
-- Update Profile Page
-![Update Profile Page HTML Validation](./docs/images/html_css_validation/user_profile_update_html.png)
+- About Page
+![About Page HTML Validation](/README_files/validation/html-about.JPG)
 
 - 404 Page (Manual Insertion)
 ![404 Page HTML Validation](./docs/images/html_css_validation/404_html.png)
@@ -149,112 +125,58 @@ The [CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used for 
 
 These are the results of the validation:
 
-- Homepage CSS File
-![Homepage CSS Validation](./docs/images/html_css_validation/homepage_css.png)
-
-- General CSS File
-![General CSS Validation](./docs/images/html_css_validation/style_css.png)
+- CSS File
+![CSS File](/README_files/validation/css.JPG)
 
 [Back to top ⇧](#table-of-contents)
-
-
-The [JSHint JavaScript Code Quality Tool](https://jshint.com/) was used to validate the sites `JS` code.
-
-- Contact JS File
-![Contact JS Validation](./docs/images/js_validation/contact_js_validation.png)
-
-- Find Book JS File
-![Find Book JS Validation](./docs/images/js_validation/search_js_validation.png)
-
-- Script JS File
-![Script JS Validation](./docs/images/js_validation/script_js_validation.png)
-
 
 #### Python Validation
 For Python code, the [CI PEP8 online validator](https://pep8ci.herokuapp.com/) was used to validate the code.
 
-Because there are so many, the developer includes here only the results of the validation of the `settings.py` file. All other Python files were validated and passed the test with same results.
+Because there are so many, i have only included the results of the validation of the `views.py` file. All other Python files were validated and passed the test with same results. The only warnings are concerning comments and lines being too long.
 
-- Settings.py File
-![Settings.py Validation](./docs/images/python_validation/settings_py.png)
+- views.py File
+![views.py Validation](/README_files/validation/python.JPG)
 
 [Back to top ⇧](#table-of-contents)
-
 
 ### Lighthouse Validation
 The [Lighthouse](https://developers.google.com/web/tools/lighthouse) tool was used to measure the performance of the website.
 
 These are the results of the validation:
 
-- Homepage
+- Home Page
+![Homepage Lighthouse Validation](/README_files/validation/lighthouse-home.JPG)
 
-![Homepage Lighthouse Validation](./docs/images/lighthouse/home_lighthouse.png)
+- About Page
+![About Page Lighthouse Validation](/README_files/validation/lighthouse-about.JPG)
 
 - Login Page
+![Login Page Lighthouse Validation](/README_files/validation/lighthouse-login.JPG)
 
-![Login Page Lighthouse Validation](./docs/images/lighthouse/login_lighthouse.png)
+- Logout Page
+![Logout Page Lighthouse Validation](/README_files/validation/lighthouse-logout.JPG)
 
-- Register Page
+- Signup Page
+![Signup Page Lighthouse Validation](/README_files/validation/lighthouse-signup.JPG)
 
-![Register Page Lighthouse Validation](./docs/images/lighthouse/register_lighthouse.png)
+- Create Post Page
+![Create Page Lighthouse Validation](/README_files/validation/lighthouse-create.JPG)
 
-- Contact Page
+- Post Detail Page
+![Post Detail Page Lighthouse Validation](/README_files/validation/lighthouse-postdetail.JPG)
 
-![Contact Page Lighthouse Validation](./docs/images/lighthouse/contact_lighthouse.png)
-
-- Find Book Page
-
-![Find Book Page Lighthouse Validation](./docs/images/lighthouse/search_lighthouse.png)
-
-- Add Book Page
-
-![Add Book Page Lighthouse Validation](./docs/images/lighthouse/add_book_lighthouse.png)
-
-- User Page (My Books Page)
-
-![User Page (My Books Page) Lighthouse Validation](./docs/images/lighthouse/user_page_lighthouse.png)
-
-- Book Details Page
-
-![Book Details Page Lighthouse Validation](./docs/images/lighthouse/book_detail_lighthouse.png)
-
-- Edit Book Page (Update Book)
-
-![Edit Book Page Lighthouse Validation](./docs/images/lighthouse/edit_book_lighthouse.png)
-
-- Delete Book Page
-
-![Delete Book Page Lighthouse Validation](./docs/images/lighthouse/delete_book_lighthouse.png)
-
-- User Favourites Page
-
-![User Favourites Page Lighthouse Validation](./docs/images/lighthouse/favourites_lighthouse.png)
-
-- User Profile Page
-
-![User Profile Page Lighthouse Validation](./docs/images/lighthouse/user_profile_lighthouse.png)
-
-- Update Profile Page
-
-![Update Profile Page Lighthouse Validation](./docs/images/lighthouse/update_profile_lighthouse.png)
-
-- 404 Page couldn't be tested with Lighthouse
+- 404 Page
+![404 Page Lighthouse Validation](/README_files/validation/lighthouse-404.JPG)
 
 [Back to top ⇧](#table-of-contents)
 
 ### Browser Validation
 The website was tested with **pass** on the following browsers:
-Google Chrome, Microsoft Edge, Mozilla Firefox, Opera, Safari, Vivaldi, Brave.
-
-In regards to **responsiveness**, the website was tested with **pass** on the following devices:
-The website was tested with **pass** on the following devices:
-- Laptop ThinkPad x270 on Linux Manjaro 3.0 Uranos
-- Ipad Air 2 on iOS 16.7
-- Iphone 12 on iOS 16.7
-- Xiaomi Mi Note 11 Pro on Android 14.0.1
+Google Chrome, Microsoft Edge, Mozilla Firefox, Opera, Safari.
 
 ### User Testing
-The website was tested by differen users, with different devices and browsers. The feedback was positive and the website was easy to use and navigate.
+The website was tested by differen users, with different devices and browsers.
 There were several suggestions for improvement, which were implemented in the future. The bugs discovered were fixed.
 
 [Back to top ⇧](#table-of-contents)

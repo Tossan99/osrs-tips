@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
+
 def redirect_view(request):
     if request.user.is_authenticated:
         return redirect('home')
@@ -14,6 +15,7 @@ def redirect_view(request):
         return redirect('about')
 
 
+#
 # Home page
 #--------------------------------------------------
 class PostList(generic.ListView):
@@ -21,6 +23,7 @@ class PostList(generic.ListView):
     template_name = "forum/index.html"
 
 
+#
 # Category pages
 #--------------------------------------------------
 class PvmList(generic.ListView):
@@ -37,17 +40,20 @@ class SkillingList(generic.ListView):
     queryset = Post.objects.filter(category="skilling")
     template_name = "forum/category_skilling.html"
 
+
 class QuestingList(generic.ListView):
     queryset = Post.objects.filter(category="questing")
     template_name = "forum/category_questing.html"
 
 
+#
 # About page
 #--------------------------------------------------
 def about_page(request):
     return render(request, "forum/about.html")
 
 
+#
 # Posts
 #--------------------------------------------------
 def post_detail(request, slug):
@@ -69,7 +75,7 @@ def post_detail(request, slug):
             messages.add_message(request, messages.SUCCESS, 'Comment submitted and awaiting approval')
         else:
             messages.add_message(request, messages.ERROR, 'Error submitting comment')
-    
+
     comment_form = CommentForm()
 
     return render(
@@ -83,6 +89,7 @@ def post_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
 
 def post_create(request):
     post_form = PostForm()
@@ -105,6 +112,7 @@ def post_create(request):
         },
     )
 
+
 def post_edit(request, post_id):
     post = Post.objects.get(pk=post_id)
 
@@ -119,20 +127,22 @@ def post_edit(request, post_id):
 
     else:
         post_form = PostForm(instance=post)
-    
-    return render(request, "forum/post_edit.html", {"post_form": post_form,})
+
+    return render(request, "forum/post_edit.html", {"post_form": post_form, })
 
 
 def post_delete(request, post_id):
     post = Post.objects.get(pk=post_id)
     if post.author == request.user:
         post.delete()
-        messages.add_message(request, messages.SUCCESS,'Post deleted successfully')
+        messages.add_message(request, messages.SUCCESS, 'Post deleted successfully')
     else:
         messages.add_message(request, messages.ERROR, 'Error deleting post')
-    
+
     return redirect("home")
 
+
+#
 # Comments
 #--------------------------------------------------
 def comment_edit(request, slug, comment_id):
@@ -153,6 +163,7 @@ def comment_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
@@ -169,6 +180,8 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+#
 # Likes
 #--------------------------------------------------
 class PostLike(View):
@@ -179,9 +192,11 @@ class PostLike(View):
                 post.likes.remove(request.user)
             else:
                 post.likes.add(request.user)
-            
+
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+#
 # Error
 #--------------------------------------------------
 def error_404(request, exception):
