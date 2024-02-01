@@ -5,7 +5,6 @@ This is the Testing section of the [README.md](README.md) file. It contains all 
 Return to [README.md](README.md)
 ## Table of Contents
 
-[Testing](#testing)
 [Table of Contents](#table-of-contents)
 - [Testing](#testing)
   - [Table of Contents](#table-of-contents)
@@ -34,6 +33,10 @@ Manual testing was conducted on the following elements that appear on every page
 - Footer
 
 ![Footer Test](/README_files/manual_testing/footer.gif)
+
+- Responsivenes
+
+![Responsivenes Test](/README_files/manual_testing/responsive.gif)
 
 ## Functionalities testing
 
@@ -75,7 +78,7 @@ Manual testing was conducted on the following elements that appear on every page
 
 - Comment on Post
 
-![Commetn on Post Test](/README_files/manual_testing/comment.gif)
+![Comment on Post Test](/README_files/manual_testing/comment.gif)
 
 - Edit Comment
 
@@ -119,7 +122,7 @@ These are the results of the validation:
 
 ![About Page HTML Validation](/README_files/validation/html-about.JPG)
 
-Some `HTML` files didn't pass due to some applications interfering with the `HTML`, but they passed when input manually.
+Some `HTML` files didn't pass due to some applications interfering with the `HTML`, but it passed when input manually.
 
 [Back to top ⇧](#table-of-contents)
 
@@ -129,6 +132,7 @@ The [CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used for 
 These are the results of the validation:
 
 - CSS File
+
 ![CSS File](/README_files/validation/css.JPG)
 
 [Back to top ⇧](#table-of-contents)

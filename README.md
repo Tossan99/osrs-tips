@@ -8,8 +8,6 @@
 Welcome to OSRS Tips, your go-to spot for Old School RuneScape wisdom! Join our friendly community where players share helpful tips and tricks. Whether you're a seasoned player or just starting out, find advice on boss battles, skilling, and the best gear. Contribute your own tips or explore the forums for valuable insights from our passionate community.
 
 At OSRS Tips, we're all about making your RuneScape journey more enjoyable and successful. Dive in, join the conversation, and expand your knowledge with us! ⚔️🛡️
-
-![Am I Responsive Image](README_files/am_i_responsive.JPG)
     
 Vissit OSRS Tips live website here! [OSRS Tips](https://osrs-tips-1f9070447937.herokuapp.com/about/)
 
@@ -30,6 +28,73 @@ Vissit OSRS Tips repository here! [Git Hub OSRS Tips](https://github.com/Tossan9
 </center>
 
 ## Table of Contents
+- [OSRS Tips](#osrs-tips)
+  - [Table of Contents](#table-of-contents)
+- [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
+  - [Site Owner Goals](#site-owner-goals)
+- [User Experience](#user-experience)
+  - [Target Audience](#target-audience)
+  - [First time user](#first-time-user)
+  - [Registered User](#registered-user)
+  - [Admin user](#admin-user)
+  - [User Stories](#user-stories)
+    - [Epic 1: New Users First Impression](#epic-1-new-users-first-impression)
+    - [EPIC 2: Registered Users Interaction and Engagement](#epic-2-registered-users-interaction-and-engagement)
+    - [EPIC 3: Moderator Content Management](#epic-3-moderator-content-management)
+- [Design](#design)
+  - [Logo](#logo)
+  - [Fonts](#fonts)
+  - [Background](#background)
+  - [Color](#color)
+  - [Wireframes](#wireframes)
+- [Database](#database)
+  - [Forum Database Schema](#forum-database-schema)
+    - [User Model](#user-model)
+    - [Post Model](#post-model)
+    - [Comment Model](#comment-model)
+- [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks](#frameworks)
+    - [Database](#database-1)
+    - [Tools](#tools)
+    - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
+- [Agile Methodology](#agile-methodology)
+    - [Agile Project Management with GitHub Projects](#agile-project-management-with-github-projects)
+    - [User Stories as GitHub Issues](#user-stories-as-github-issues)
+    - [Bug Tracking for Seamless Development](#bug-tracking-for-seamless-development)
+    - [User Story Distribution (MoSCoW)](#user-story-distribution-moscow)
+- [Features](#features)
+    - [Landing/About Page](#landingabout-page)
+    - [Forum Page](#forum-page)
+    - [Post Detail Page](#post-detail-page)
+    - [Create Post Page](#create-post-page)
+    - [Account Pages](#account-pages)
+    - [Error pages](#error-pages)
+    - [Future Features](#future-features)
+- [Testing](#testing)
+- [Bugs](#bugs)
+    - [Known bugs](#known-bugs)
+    - [Fixed bugs](#fixed-bugs)
+- [Deployment and Local Development](#deployment-and-local-development)
+  - [Local Development](#local-development)
+    - [How to Fork](#how-to-fork)
+    - [How to Clone](#how-to-clone)
+    - [ElephantSQL Database](#elephantsql-database)
+    - [Cloudinary](#cloudinary)
+    - [Heroku Deployment](#heroku-deployment)
+    - [Prepare environment and settings.py](#prepare-environment-and-settingspy)
+    - [Add the following Config Vars in Heroku](#add-the-following-config-vars-in-heroku)
+    - [Heroku needs two additional files to deploy properly](#heroku-needs-two-additional-files-to-deploy-properly)
+    - [Deploy](#deploy)
+- [Credits](#credits)
+    - [Django Documentation](#django-documentation)
+    - [Bootstrap Documentation](#bootstrap-documentation)
+    - [Other guides](#other-guides)
+    - [Content](#content)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 # Project Goals
 
@@ -376,6 +441,8 @@ All testing was conducted and documented in [Testing.md](TESTING.md) for easy ac
 
 ### Known bugs
 
+- [BUG: New image when editing post](https://github.com/Tossan99/osrs-tips/issues/21)
+
 ### Fixed bugs
 
 - [BUG: Prepopulate Slug Field](https://github.com/Tossan99/osrs-tips/issues/16) 
@@ -505,10 +572,5 @@ The site is now live
 - [amiresponsive.blogspot.com](https://amiresponsive.blogspot.com/)
 - [coolors.co](https://coolors.co/)
 - [balsamiq.com](https://balsamiq.com/learn/)
-
-[Back to top ⇧](#table-of-contents)
-
-# Acknowledgments
-
 
 [Back to top ⇧](#table-of-contents)
